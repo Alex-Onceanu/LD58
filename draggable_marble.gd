@@ -3,25 +3,54 @@ extends Node2D
 signal clicked
 
 @onready var held = false
+@onready var mouse_in = false
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			clicked.emit(self)
+@onready var was_held = false
+var pos_to_reset : Vector2
+@onready var should_reset = false
+
+func _ready() -> void:
+	$PhysicsMarble.freeze = true
+	pos_to_reset = $PhysicsMarble.global_transform.origin
+
+func reset_pos():
+	print(pos_to_reset, $PhysicsMarble.global_transform.origin)
+	$PhysicsMarble.freeze = true
+	should_reset = true
 
 func _physics_process(delta):
 	if held:
-		global_transform.origin = get_global_mouse_position()
+		$PhysicsMarble.global_transform.origin = get_global_mouse_position()
+	if should_reset:
+		print(pos_to_reset, $PhysicsMarble.global_transform.origin)
+		$PhysicsMarble.global_transform.origin = pos_to_reset
+		$PhysicsMarble.freeze = false
+		should_reset = false
+
+func _process(delta):
+	if Input.is_action_just_pressed("mouse_click") and mouse_in:
+		print("coucou")
+		clicked.emit(self)
+	elif not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		held = false
 
 func pickup():
+	was_held = true
 	if held:
 		return
-	#$PhysicsMarble.freeze = true
-	#$PhysicsMarble.apply_central_impulse(impulse)
+	$PhysicsMarble.freeze = true
 	held = true
 	
 func drop(impulse=Vector2.ZERO):
 	if held:
-		#$PhysicsMarble.freeze = false
-		#$PhysicsMarble.apply_central_impulse(impulse)
+		$PhysicsMarble.freeze = false
+		$PhysicsMarble.apply_central_impulse(impulse)
 		held = false
+
+
+func _on_area_2d_mouse_entered() -> void:
+	mouse_in = true
+
+
+func _on_area_2d_mouse_exited() -> void:
+	mouse_in = false

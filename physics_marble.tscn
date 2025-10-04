@@ -10,8 +10,8 @@ gravity_scale = 1.2
 script = ExtResource("1_bfqoe")
 
 [node name="MarbleSprite" parent="." instance=ExtResource("1_0eotb")]
+position = Vector2(-10, -10)
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, 10)
 shape = SubResource("CircleShape2D_0eotb")

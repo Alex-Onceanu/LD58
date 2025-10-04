@@ -14,49 +14,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ik41r")
 metadata/_edit_horizontal_guides_ = [-351.0]
-metadata/_edit_vertical_guides_ = [1000.0, 150.0]
+metadata/_edit_vertical_guides_ = [1794.0, 288.0, 576.0, -655.0, 863.0]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(306, 541)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-266, -92, -244, -21, -159, 55, 154, 84, 536, 82, 751, 54, 793, -2, 814, -87, 809, -132, 780, -87, 745, -51, 697, -5, 615, 19, 485, 32, 338, 41, 175, 35, 83, 35, -9, 22, -87, -5, -174, -40, -248, -82)
 
 [node name="Background" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ik41r")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 646.0
+mouse_filter = 2
 
 [node name="PlayerSelect1" parent="." instance=ExtResource("1_2ahgr")]
-layout_mode = 1
-offset_left = 63.0
-offset_top = 100.0
-offset_right = -889.0
-offset_bottom = -48.0
+position = Vector2(151, 300)
 clrName = "Blue"
 clr = Color(0, 0, 1, 1)
 
 [node name="PlayerSelect2" parent="." instance=ExtResource("1_2ahgr")]
-layout_mode = 1
-offset_left = 338.0
-offset_top = 100.0
-offset_right = -614.0
-offset_bottom = -48.0
+position = Vector2(433, 300)
 clrName = "Red"
 clr = Color(1, 0, 0, 1)
 
 [node name="PlayerSelect3" parent="." instance=ExtResource("1_2ahgr")]
-layout_mode = 1
-offset_left = 612.0
-offset_top = 100.0
-offset_right = -340.0
-offset_bottom = -51.0
+position = Vector2(724, 300)
 clrName = "Yellow"
 clr = Color(1, 1, 0, 1)
 
 [node name="PlayerSelect4" parent="." instance=ExtResource("1_2ahgr")]
-layout_mode = 1
-offset_left = 888.0
-offset_top = 100.0
-offset_right = -64.0
-offset_bottom = -51.0
+position = Vector2(1014, 300)
 clrName = "Green"
 clr = Color(0, 1, 0, 1)
 
@@ -66,12 +58,7 @@ offset_left = 441.0
 offset_top = 541.0
 offset_right = 699.0
 offset_bottom = 626.0
+mouse_filter = 1
 text = "START"
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(306, 541)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-266, -92, -244, -21, -159, 55, 154, 84, 536, 82, 751, 54, 793, -2, 814, -87, 809, -132, 780, -87, 745, -51, 702, -14, 620, 16, 485, 32, 300, 37, 175, 35, 83, 35, -9, 22, -87, -5, -174, -40, -248, -82)
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

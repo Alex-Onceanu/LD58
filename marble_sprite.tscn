@@ -12,3 +12,4 @@ physics_interpolation_mode = 1
 material = SubResource("ShaderMaterial_hfsiw")
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
