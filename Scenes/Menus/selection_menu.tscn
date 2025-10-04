@@ -52,13 +52,34 @@ position = Vector2(1014, 300)
 clrName = "Green"
 clr = Color(0, 1, 0, 1)
 
-[node name="Start" type="Button" parent="."]
+[node name="Play" type="Button" parent="."]
 layout_mode = 0
 offset_left = 441.0
 offset_top = 541.0
 offset_right = 699.0
 offset_bottom = 626.0
 mouse_filter = 1
+disabled = true
+text = "PLAY"
+
+[node name="Next" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 444.0
+offset_top = 543.0
+offset_right = 699.0
+offset_bottom = 624.0
+text = "Next"
+
+[node name="StartGame" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 442.0
+offset_top = 542.0
+offset_right = 701.0
+offset_bottom = 624.0
 text = "START"
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]

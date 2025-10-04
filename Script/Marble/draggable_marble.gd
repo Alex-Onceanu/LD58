@@ -1,7 +1,5 @@
 extends Node2D
 
-signal clicked
-
 @onready var held = false
 @onready var mouse_in = false
 
@@ -9,14 +7,11 @@ signal clicked
 var pos_to_reset : Vector2
 @onready var should_reset = false
 
+const PMARBLE_SCENE = preload("res://Scenes/Marble/physics_marble.tscn")
+
 func _ready() -> void:
 	$PhysicsMarble.freeze = true
 	pos_to_reset = $PhysicsMarble.global_transform.origin
-
-func reset_pos():
-	print(pos_to_reset, $PhysicsMarble.global_transform.origin)
-	$PhysicsMarble.freeze = true
-	should_reset = true
 
 func _physics_process(delta):
 	if held:
@@ -29,8 +24,7 @@ func _physics_process(delta):
 
 func _process(delta):
 	if Input.is_action_just_pressed("mouse_click") and mouse_in:
-		print("coucou")
-		clicked.emit(self)
+		get_parent().get_parent()._on_pickable_clicked(self)
 	elif not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		held = false
 
