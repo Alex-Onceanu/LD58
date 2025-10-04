@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsdc0a2xxlsnk"]
+
+[ext_resource type="Script" uid="uid://ufjgiyfp0op6" path="res://Script/Menu/selection_menu.gd" id="1_bbd4k"]
+[ext_resource type="Shader" uid="uid://bvkisly5xaids" path="res://Shaders/Menu/menu_background.gdshader" id="2_3uq8l"]
+[ext_resource type="PackedScene" uid="uid://blqp7vyvbe5mq" path="res://Scenes/Menus/player_select.tscn" id="3_dj8c6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ik41r"]
+shader = ExtResource("2_3uq8l")
+
+[node name="SelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bbd4k")
+metadata/_edit_horizontal_guides_ = [-351.0]
+metadata/_edit_vertical_guides_ = [1794.0, 288.0, 576.0, -655.0, 863.0]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(306, 541)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-266, -92, -244, -21, -159, 55, 154, 84, 536, 82, 751, 54, 793, -2, 814, -87, 809, -132, 780, -87, 745, -51, 697, -5, 615, 19, 485, 32, 338, 41, 175, 35, 83, 35, -9, 22, -87, -5, -174, -40, -248, -82)
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ik41r")
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+mouse_filter = 2
+
+[node name="PlayerSelect1" parent="." instance=ExtResource("3_dj8c6")]
+position = Vector2(151, 300)
+clrName = "Blue"
+clr = Color(0, 0, 1, 1)
+
+[node name="PlayerSelect2" parent="." instance=ExtResource("3_dj8c6")]
+position = Vector2(433, 300)
+clrName = "Red"
+clr = Color(1, 0, 0, 1)
+
+[node name="PlayerSelect3" parent="." instance=ExtResource("3_dj8c6")]
+position = Vector2(724, 300)
+clrName = "Yellow"
+clr = Color(1, 1, 0, 1)
+
+[node name="PlayerSelect4" parent="." instance=ExtResource("3_dj8c6")]
+position = Vector2(1014, 300)
+clrName = "Green"
+clr = Color(0, 1, 0, 1)
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 541.0
+offset_right = 699.0
+offset_bottom = 626.0
+mouse_filter = 1
+text = "START"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

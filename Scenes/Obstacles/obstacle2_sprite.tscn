@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdi7w32x7rodw"]
+
+[ext_resource type="Shader" uid="uid://bof06w1mi8ulj" path="res://Shaders/Obstacle/obstacle2.gdshader" id="1_q2jng"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l1v70"]
+shader = ExtResource("1_q2jng")
+
+[node name="Obstacle2Sprite" type="Node2D"]
+scale = Vector2(3, 3)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_l1v70")
+offset_right = 40.0
+offset_bottom = 40.0
