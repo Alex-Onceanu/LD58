@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6dd3yagmchk6"]
+
+[ext_resource type="Script" uid="uid://d27hemy4b4r3l" path="res://physics.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cymonoxf3tu0a" path="res://physics_marble.tscn" id="2_h2yge"]
+
+[node name="main" type="Node2D"]
+
+[node name="marbles" type="Node2D" parent="."]
+script = ExtResource("2_0xm2m")
+
+[node name="PhysicsMarble" parent="marbles" instance=ExtResource("2_h2yge")]
+
+[node name="PhysicsMarble2" parent="marbles" instance=ExtResource("2_h2yge")]
+position = Vector2(200, 0)
+
+[node name="PhysicsMarble3" parent="marbles" instance=ExtResource("2_h2yge")]
+position = Vector2(400, 0)

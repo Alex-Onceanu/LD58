@@ -8,6 +8,7 @@ shader = ExtResource("1_36idh")
 [node name="MarbleSprite" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+physics_interpolation_mode = 1
 material = SubResource("ShaderMaterial_hfsiw")
 offset_right = 40.0
 offset_bottom = 40.0
