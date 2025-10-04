@@ -9,13 +9,13 @@ func _ready() -> void:
 	$Background.color = clr
 	$Background.color.a = 0.4
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_add_player_toggled(toggled_on: bool) -> void:
+func _on_add_player_pressed() -> void:
 	$AddPlayer.visible = false
-	create_tween().tween_property($Background, "position", Vector2($Background.position.x, 130.), 0.7).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
-	$Background.visible = true
+	$Background/RemovePlayer.visible = true
+	create_tween().tween_property($Background, "position", Vector2($Background.position.x, -30.), 0.7).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+
+func _on_remove_player_pressed() -> void:
+	$Background/RemovePlayer.visible = false
+	$AddPlayer.visible = true
+	create_tween().tween_property($Background, "position", Vector2($Background.position.x, 800.), 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	

@@ -15,22 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yh01e")
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 573.0
-offset_right = 201.0
-offset_bottom = 946.0
-color = Color(0.47592735, 0.47592735, 0.4759273, 0.4627451)
-
-[node name="Label" type="Label" parent="Background"]
-layout_mode = 0
-offset_top = -1.0
-offset_right = 200.0
-offset_bottom = 45.0
-text = "name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="AddPlayer" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -44,7 +28,33 @@ offset_right = 34.0
 offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
-toggle_mode = true
 text = "+"
 
-[connection signal="toggled" from="AddPlayer" to="." method="_on_add_player_toggled"]
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 800.0
+offset_right = 200.0
+offset_bottom = 1219.0
+color = Color(0.47592735, 0.47592735, 0.4759273, 0.4627451)
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 305.0
+offset_right = 201.0
+offset_bottom = 364.0
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemovePlayer" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 367.0
+offset_right = 174.0
+offset_bottom = 412.0
+text = "remove player"
+
+[connection signal="pressed" from="AddPlayer" to="." method="_on_add_player_pressed"]
+[connection signal="pressed" from="Background/RemovePlayer" to="." method="_on_remove_player_pressed"]
