@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://csk1fgn7gy5xj"]
+
+[ext_resource type="PackedScene" uid="uid://btx1t7ebaai7b" path="res://obstacle2_sprite.tscn" id="1_nqtxy"]
+[ext_resource type="Shader" uid="uid://bof06w1mi8ulj" path="res://Shaders/Obstacle/obstacle2.gdshader" id="2_42ek7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pee0d"]
+shader = ExtResource("2_42ek7")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_42ek7"]
+b = Vector2(119, 119)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Obstacle2Sprite" parent="." instance=ExtResource("1_nqtxy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("ShaderMaterial_pee0d")
+shape = SubResource("SegmentShape2D_42ek7")

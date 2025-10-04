@@ -2,14 +2,14 @@
 
 [ext_resource type="Shader" uid="uid://02vthc6ipp7n" path="res://Shaders/Marble/marble.gdshader" id="1_chly2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfsiw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chly2"]
 shader = ExtResource("1_chly2")
 
 [node name="MarbleSprite" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 physics_interpolation_mode = 1
-material = SubResource("ShaderMaterial_hfsiw")
+material = SubResource("ShaderMaterial_chly2")
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2

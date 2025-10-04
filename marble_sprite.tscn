@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://fsjwrolc88s6"]
+
+[ext_resource type="Shader" uid="uid://02vthc6ipp7n" path="res://Shaders/Marble/marble.gdshader" id="1_36idh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfsiw"]
+shader = ExtResource("1_36idh")
+
+[node name="MarbleSprite" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+physics_interpolation_mode = 1
+material = SubResource("ShaderMaterial_hfsiw")
+offset_right = 40.0
+offset_bottom = 40.0

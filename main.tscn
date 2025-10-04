@@ -1,19 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6dd3yagmchk6"]
+[gd_scene load_steps=9 format=3 uid="uid://cl6j5e5wq7pdg"]
 
-[ext_resource type="Script" uid="uid://ckvx3lpftum17" path="res://Script/main.gd" id="1_6bp64"]
-[ext_resource type="Script" uid="uid://d27hemy4b4r3l" path="res://Script/Marble/physics.gd" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cymonoxf3tu0a" path="res://Scenes/Marble/physics_marble.tscn" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://cg3jlcqsnwk5b" path="res://Script/Obstacles/obstacles.gd" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dbhuyg21ivae2" path="res://Scenes/Obstacles/physics_obstacle.tscn" id="4_lquwl"]
-[ext_resource type="PackedScene" uid="uid://bqm2bx6jx6xym" path="res://Scenes/Obstacles/physics_obstacle2.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://unbcvdd4wr00" path="res://Scenes/Obstacles/slope2.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://orqn8vqih0bo" path="res://starting_area.tscn" id="8_344ge"]
+[ext_resource type="Script" uid="uid://ckvx3lpftum17" path="res://Script/main.gd" id="1_5vw27"]
+[ext_resource type="Script" uid="uid://cbr7l53j7ja4e" path="res://physics.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c2mrsdmjdtgf" path="res://physics_marble.tscn" id="2_h2yge"]
+[ext_resource type="Script" path="res://obstacles.gd" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b21b2yhlged3y" path="res://physics_obstacle.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://csk1fgn7gy5xj" path="res://physics_obstacle2.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://pvh6l7t4gu0n" path="res://slope2.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://orqn8vqih0bo" path="res://starting_area.tscn" id="8_kek77"]
 
-[node name="main" type="Node2D" node_paths=PackedStringArray("st", "marbles", "obstacles")]
-script = ExtResource("1_6bp64")
-st = NodePath("startingAreas")
-marbles = NodePath("marbles")
-obstacles = NodePath("obstacles")
+[node name="main" type="Node2D" node_paths=PackedStringArray("selectedMarble")]
+script = ExtResource("1_5vw27")
+selectedMarble = NodePath("marbles/Marble")
 
 [node name="obstacles" type="Node2D" parent="."]
 script = ExtResource("3_1bvp3")
@@ -40,7 +38,7 @@ position = Vector2(282, 207)
 script = ExtResource("2_0xm2m")
 
 [node name="Marble" parent="marbles" instance=ExtResource("2_h2yge")]
-position = Vector2(534, 101)
+position = Vector2(559, 108)
 
 [node name="Marble2" parent="marbles" instance=ExtResource("2_h2yge")]
 position = Vector2(415, 124)
@@ -56,4 +54,4 @@ position = Vector2(416, 46)
 
 [node name="startingAreas" type="Node2D" parent="."]
 
-[node name="StartingArea" parent="startingAreas" instance=ExtResource("8_344ge")]
+[node name="StartingArea" parent="startingAreas" instance=ExtResource("8_kek77")]
