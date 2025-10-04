@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://blqp7vyvbe5mq"]
+
+[ext_resource type="Script" uid="uid://etobnmtajeqt" path="res://player_select.gd" id="1_yh01e"]
+
+[node name="PlayerSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -248.0
+offset_right = -1052.0
+offset_bottom = -399.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yh01e")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 573.0
+offset_right = 201.0
+offset_bottom = 946.0
+color = Color(0.47592735, 0.47592735, 0.4759273, 0.4627451)
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 200.0
+offset_bottom = 45.0
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AddPlayer" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -32.5
+offset_right = 34.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+text = "+"
+
+[connection signal="toggled" from="AddPlayer" to="." method="_on_add_player_toggled"]
