@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://unbcvdd4wr00"]
+
+[ext_resource type="PackedScene" uid="uid://bdi7w32x7rodw" path="res://obstacle2_sprite.tscn" id="1_v523v"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4gl1e"]
+b = Vector2(-120, 120)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Obstacle2Sprite" parent="." instance=ExtResource("1_v523v")]
+position = Vector2(0, 120)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(120, 0)
+shape = SubResource("SegmentShape2D_4gl1e")
