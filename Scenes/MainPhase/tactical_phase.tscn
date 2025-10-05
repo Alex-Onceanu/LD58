@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3uirosy8e4i1"]
+[gd_scene load_steps=15 format=3 uid="uid://b3uirosy8e4i1"]
 
 [ext_resource type="Script" uid="uid://d3lhck1slhebb" path="res://Script/Menu/tactical_phase.gd" id="1_qelru"]
 [ext_resource type="Shader" uid="uid://bvkisly5xaids" path="res://Shaders/Menu/menu_background.gdshader" id="2_ah8cx"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://7v0kkvyph5qv" path="res://Scenes/Obstacles/SingleObstacles/Funnel.tscn" id="8_k1jnv"]
 [ext_resource type="PackedScene" uid="uid://bm7ui3nm70x2b" path="res://Scenes/Obstacles/SingleObstacles/Scrollbar.tscn" id="9_oar8e"]
 [ext_resource type="PackedScene" uid="uid://3pnlrd0mm82" path="res://Scenes/Obstacles/SingleObstacles/Bubble.tscn" id="10_pwttk"]
+[ext_resource type="PackedScene" uid="uid://dhrcpimvnmjt3" path="res://Scenes/Obstacles/SingleObstacles/Teleporter.tscn" id="11_l2110"]
+[ext_resource type="PackedScene" uid="uid://b3ctqk0c077xx" path="res://Scenes/Obstacles/SingleObstacles/BlackHole.tscn" id="12_j54s5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o448h"]
 shader = ExtResource("2_ah8cx")
@@ -43,17 +45,23 @@ position = Vector2(197, 273)
 position = Vector2(326, 247)
 
 [node name="Ramp" parent="Level" instance=ExtResource("7_8q6y4")]
-position = Vector2(401, 369.00003)
+position = Vector2(364.00003, 382.99997)
 
 [node name="Funnel" parent="Level" instance=ExtResource("8_k1jnv")]
-position = Vector2(529, 247)
+position = Vector2(502, 265)
 
 [node name="Scrollbar" parent="Level" instance=ExtResource("9_oar8e")]
-position = Vector2(629, 381)
+position = Vector2(592, 383.00003)
 vertical = true
 
 [node name="Bubble" parent="Level" instance=ExtResource("10_pwttk")]
-position = Vector2(730, 362)
+position = Vector2(467, 419)
+
+[node name="Teleporter" parent="Level" instance=ExtResource("11_l2110")]
+position = Vector2(692, 429)
+
+[node name="BlackHole" parent="Level" instance=ExtResource("12_j54s5")]
+position = Vector2(931, 318)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 

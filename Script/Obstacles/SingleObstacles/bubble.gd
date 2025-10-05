@@ -4,7 +4,6 @@ extends Node2D
 @export var numberOfHits : int
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Body entered", body)
 	if (body.has_method("apply_impulse")):
 		var normalVector = body.position - position
 		body.linear_velocity = Vector2(0.0, 0.0)

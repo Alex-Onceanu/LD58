@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhrcpimvnmjt3"]
+
+[ext_resource type="Script" uid="uid://dxue1pwl0dwbm" path="res://Script/Obstacles/SingleObstacles/teleporter.gd" id="1_7b4f5"]
+
+[node name="Teleporter" type="Node2D"]
+script = ExtResource("1_7b4f5")
+length = 100.0
+height = 30.0
+spacingX = 30.0
+spacingY = -100.0
+
+[node name="Entry" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Entry"]
+color = Color(0.8637213, 0.95751184, 0.6547268, 1)
+polygon = PackedVector2Array(-50, -10, -50, 10, 50, 10, 50, -10)
+
+[node name="Area2D" type="Area2D" parent="Entry"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Entry/Area2D"]
+polygon = PackedVector2Array(-50, -10, -50, 10, 50, 10, 50, -10)
+
+[node name="Exit" type="Polygon2D" parent="."]
+position = Vector2(0, -37)
+color = Color(0.48052526, 0.8925528, 0.89522547, 1)
+polygon = PackedVector2Array(-50, -10, -50, 10, 50, 10, 50, -10)
+uv = PackedVector2Array(-50, -10, -50, 10, 50, 10, 50, -10)
+
+[connection signal="body_entered" from="Entry/Area2D" to="." method="_on_area_2d_body_entered"]

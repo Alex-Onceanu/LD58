@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ctqk0c077xx"]
+
+[ext_resource type="Script" uid="uid://bimw3vep5acx8" path="res://Script/Obstacles/SingleObstacles/black_hole.gd" id="1_ppcha"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xtgb"]
+radius = 143.42245
+
+[node name="BlackHole" type="Node2D"]
+script = ExtResource("1_ppcha")
+forceFactor = 1.0
+
+[node name="Attracteur" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attracteur"]
+shape = SubResource("CircleShape2D_7xtgb")
+
+[node name="DebugAfficheAttracteur" type="Polygon2D" parent="Attracteur"]
+position = Vector2(1.3877563, 0.46258545)
+scale = Vector2(1.9251701, 1.9251701)
+color = Color(0.95686275, 0, 0.7019608, 0.16470589)
+polygon = PackedVector2Array(-36, -67, -50, -54, -65, -38, -75, -12, -74, 12, -69, 27, -57, 48, -38, 64, -10, 74, 12, 72, 44, 57, 57, 46, 72, 22, 72, -17, 62, -42, 33, -67, 0, -75, -30, -70)
+
+[connection signal="body_entered" from="Attracteur" to="." method="_on_attracteur_body_entered"]
+[connection signal="body_exited" from="Attracteur" to="." method="_on_attracteur_body_exited"]
