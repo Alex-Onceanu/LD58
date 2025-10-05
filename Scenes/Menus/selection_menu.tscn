@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsdc0a2xxlsnk"]
+[gd_scene load_steps=4 format=3 uid="uid://dsdc0a2xxlsnk"]
 
 [ext_resource type="Script" uid="uid://ufjgiyfp0op6" path="res://Script/Menu/selection_menu.gd" id="1_bbd4k"]
-[ext_resource type="Shader" uid="uid://bvkisly5xaids" path="res://Shaders/Menu/menu_background.gdshader" id="2_3uq8l"]
+[ext_resource type="Texture2D" uid="uid://bfsa2yubkgaly" path="res://Assets/windows_xp_background.jpg" id="2_bbd4k"]
 [ext_resource type="PackedScene" uid="uid://blqp7vyvbe5mq" path="res://Scenes/Menus/player_select.tscn" id="3_dj8c6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ik41r"]
-shader = ExtResource("2_3uq8l")
 
 [node name="SelectionMenu" type="Control"]
 layout_mode = 3
@@ -25,12 +22,10 @@ position = Vector2(306, 541)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-266, -92, -258, 53, -162, 71, 93, 103, 536, 103, 783, 89, 834, 6, 834, -85, 834, -151, 780, -87, 745, -51, 689, -19, 610, 4, 494, 21, 353, 33, 171, 32, 82, 23, -12, 5, -103, -36, -180, -84, -271, -189)
 
-[node name="Background" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_ik41r")
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 646.0
-mouse_filter = 2
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(575, 322.99997)
+scale = Vector2(0.29895833, 0.29907405)
+texture = ExtResource("2_bbd4k")
 
 [node name="PlayerSelect1" parent="." instance=ExtResource("3_dj8c6")]
 position = Vector2(151, 300)

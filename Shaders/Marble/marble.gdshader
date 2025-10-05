@@ -8,7 +8,8 @@ void vertex() {
 
 void fragment() {
 	vec2 uv = 2.0 * UV - vec2(1., 1.);
-	COLOR = (1. - step(1., dot(uv, uv))) * team_color;
+	float alp = 1.0 * smoothstep(1.0, 0.8, length(uv));
+	COLOR = vec4(team_color.rgb, alp);
 }
 
 //void light() {

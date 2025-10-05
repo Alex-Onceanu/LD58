@@ -24,7 +24,7 @@ func _on_play_pressed() -> void:
 		else:
 			who_plays.append(i)
 		get_node("PlayerSelect" + str(i) + "/Background/RemovePlayer").visible = false
-		get_node("PlayerSelect" + str(i) + "/Background/Label").position.y = get_node("PlayerSelect" + str(i) + "/Background/RemovePlayer").position.y
+		#get_node("PlayerSelect" + str(i) + "/Background/Label").position.y = get_node("PlayerSelect" + str(i) + "/Background/RemovePlayer").position.y
 
 	$WhoseTurn.text = get_node("PlayerSelect" + str(who_plays[0])).clrName + "'s turn to bet"
 	$Next.visible = true
@@ -90,7 +90,7 @@ func memento_mori(wp, winner, lose_per_player, remainder, curr_lvl):
 		if who_plays.has(i):
 			get_node("PlayerSelect" + str(i) + "/AddPlayer").visible = false
 			get_node("PlayerSelect" + str(i) + "/Background/RemovePlayer").visible = false
-			get_node("PlayerSelect" + str(i) + "/Background/Label").position.y = get_node("PlayerSelect" + str(i) + "/Background/RemovePlayer").position.y
+			#get_node("PlayerSelect" + str(i) + "/Background/Label").position.y = get_node("PlayerSelect" + str(i) + "/Background/RemovePlayer").position.y
 			get_node("PlayerSelect" + str(i) + "/Background").position.y -= 730.
 			get_node("PlayerSelect" + str(i) + "/Marbles").position.y -= 730.
 			for m in get_node("PlayerSelect" + str(i) + "/Marbles").get_children():

@@ -1,6 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3ctqk0c077xx"]
+[gd_scene load_steps=5 format=3 uid="uid://b3ctqk0c077xx"]
 
 [ext_resource type="Script" uid="uid://bimw3vep5acx8" path="res://Script/Obstacles/SingleObstacles/black_hole.gd" id="1_ppcha"]
+[ext_resource type="Shader" uid="uid://coa5tavytfsd6" path="res://Shaders/Obstacle/BlackHole.gdshader" id="2_rrabh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_by5i0"]
+shader = ExtResource("2_rrabh")
+shader_parameter/strength = 0.01
+shader_parameter/black_radius = 0.65
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xtgb"]
 radius = 143.42245
@@ -9,12 +15,22 @@ radius = 143.42245
 script = ExtResource("1_ppcha")
 forceFactor = 1.0
 
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_by5i0")
+offset_left = -139.0
+offset_top = -143.0
+offset_right = 140.0
+offset_bottom = 143.99219
+mouse_filter = 2
+
 [node name="Attracteur" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attracteur"]
+visible = false
 shape = SubResource("CircleShape2D_7xtgb")
 
 [node name="DebugAfficheAttracteur" type="Polygon2D" parent="Attracteur"]
+visible = false
 position = Vector2(1.3877563, 0.46258545)
 scale = Vector2(1.9251701, 1.9251701)
 color = Color(0.95686275, 0, 0.7019608, 0.16470589)

@@ -1,24 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3uirosy8e4i1"]
+[gd_scene load_steps=5 format=3 uid="uid://b3uirosy8e4i1"]
 
 [ext_resource type="Script" uid="uid://d3lhck1slhebb" path="res://Script/Menu/tactical_phase.gd" id="1_qelru"]
-[ext_resource type="Shader" uid="uid://bvkisly5xaids" path="res://Shaders/Menu/menu_background.gdshader" id="2_ah8cx"]
+[ext_resource type="Texture2D" uid="uid://bfsa2yubkgaly" path="res://Assets/windows_xp_background.jpg" id="2_1cadd"]
 [ext_resource type="PackedScene" uid="uid://cjs1xkph7r2p" path="res://Scenes/Obstacles/draggable_obstacle.tscn" id="3_o448h"]
 [ext_resource type="PackedScene" uid="uid://3pnlrd0mm82" path="res://Scenes/Obstacles/SingleObstacles/Bubble.tscn" id="10_pwttk"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o448h"]
-shader = ExtResource("2_ah8cx")
 
 [node name="TacticalPhase" type="Node2D"]
 script = ExtResource("1_qelru")
 metadata/_edit_vertical_guides_ = [-574.0, -464.0, 399.0]
 metadata/_edit_horizontal_guides_ = [558.0]
 
-[node name="Background" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_o448h")
-offset_top = -1.0
-offset_right = 1153.0
-offset_bottom = 649.0
-mouse_filter = 2
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(575, 322.99997)
+scale = Vector2(0.29895833, 0.29907405)
+texture = ExtResource("2_1cadd")
 
 [node name="Level" type="Node2D" parent="."]
 

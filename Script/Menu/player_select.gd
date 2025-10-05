@@ -9,8 +9,8 @@ var can_pick
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Background/Label.text = clrName
-	$Background/BackgroundImg.color = clr
-	$Background/BackgroundImg.color.a = 0.4
+	#$Background/BackgroundImg.color = clr
+	#$Background/BackgroundImg.color.a = 0.4
 	
 	for ch in $Marbles.get_children():
 		ch.get_node("PhysicsMarble/MarbleSprite/ColorRect").material.set("shader_parameter/team_color", clr)
