@@ -1,6 +1,7 @@
 extends Control
 
-const all_levels = ["res://Scenes/Levels/test_level.tscn"]
+#const all_levels = ["res://Scenes/Levels/test_level.tscn"]
+const all_levels = ["res://Scenes/Levels/level1.tscn"]
 const all_obstacles= ["BlackHole", "Bubble", "CircleCollide", "Funnel", "Ramp", "Scrollbar", "SpinningRectangle", "Teleporter", "TriangleSplit", "Windmill"]
 
 const GAME_SCENE = preload("res://Scenes/MainPhase/tactical_phase.tscn")
