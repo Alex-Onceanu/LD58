@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2q7wf26wkxtn"]
+[gd_scene load_steps=4 format=3 uid="uid://d2q7wf26wkxtn"]
 
 [ext_resource type="PackedScene" uid="uid://bqm2bx6jx6xym" path="res://Scenes/Obstacles/physics_obstacle2.tscn" id="1_7t06c"]
+[ext_resource type="PackedScene" uid="uid://cytww5d5v6ygk" path="res://Scenes/Levels/border_walls.tscn" id="2_b07c4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b07c4"]
 size = Vector2(158, 83)
@@ -59,3 +60,5 @@ scale = Vector2(1, -1)
 
 [node name="StaticBody2D4" parent="Obstacles" instance=ExtResource("1_7t06c")]
 position = Vector2(911, 230)
+
+[node name="BorderWalls" parent="Obstacles" instance=ExtResource("2_b07c4")]

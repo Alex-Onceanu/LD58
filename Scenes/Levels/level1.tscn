@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://nnpduv7r8153"]
+
+[ext_resource type="PackedScene" uid="uid://ddp5dsv87ka5u" path="res://Scenes/Obstacles/SingleObstacles/TriangleSplit.tscn" id="1_16p8j"]
+[ext_resource type="PackedScene" uid="uid://cytww5d5v6ygk" path="res://Scenes/Levels/border_walls.tscn" id="2_1ukdm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xrym"]
+size = Vector2(1159, 47)
+
+[node name="Level1" type="Node2D"]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SpawnPoints"]
+position = Vector2(191, 99)
+
+[node name="Node2D2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(570, 49)
+
+[node name="Node2D3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(933, 101)
+
+[node name="Node2D4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(570, 112)
+
+[node name="WinAreas" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="WinAreas"]
+position = Vector2(559, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinAreas/Area2D"]
+position = Vector2(15.5, 13.5)
+shape = SubResource("RectangleShape2D_0xrym")
+debug_color = Color(0, 0.6361711, 0.4121153, 0.41960785)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="TriangleSplit" parent="Obstacles" instance=ExtResource("1_16p8j")]
+position = Vector2(192, 254)
+scale = Vector2(1.1, 2)
+
+[node name="TriangleSplit2" parent="Obstacles" instance=ExtResource("1_16p8j")]
+position = Vector2(564, 254)
+scale = Vector2(1.1, 2)
+
+[node name="TriangleSplit3" parent="Obstacles" instance=ExtResource("1_16p8j")]
+position = Vector2(935, 256)
+scale = Vector2(1.1, 2)
+
+[node name="TriangleSplit4" parent="Obstacles" instance=ExtResource("1_16p8j")]
+position = Vector2(-3, 398)
+scale = Vector2(1.1, 2)
+
+[node name="TriangleSplit5" parent="Obstacles" instance=ExtResource("1_16p8j")]
+position = Vector2(382, 396)
+scale = Vector2(1.1, 2)
+
+[node name="TriangleSplit6" parent="Obstacles" instance=ExtResource("1_16p8j")]
+position = Vector2(762, 394)
+scale = Vector2(1.1, 2)
+
+[node name="TriangleSplit7" parent="Obstacles" instance=ExtResource("1_16p8j")]
+position = Vector2(1145, 390)
+scale = Vector2(1.1, 2)
+
+[node name="BorderWalls" parent="Obstacles" instance=ExtResource("2_1ukdm")]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8qpgl2xujck3"]
+
+[ext_resource type="PackedScene" uid="uid://bx353tcm5nx77" path="res://Scenes/Obstacles/SingleObstacles/Ramp.tscn" id="1_n5v07"]
+[ext_resource type="PackedScene" uid="uid://bm7ui3nm70x2b" path="res://Scenes/Obstacles/SingleObstacles/Scrollbar.tscn" id="2_2wdis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5prx"]
+size = Vector2(297, 127)
+
+[node name="Level4" type="Node2D"]
+
+[node name="WinAreas" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="WinAreas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinAreas/Area2D"]
+position = Vector2(571, 672)
+shape = SubResource("RectangleShape2D_y5prx")
+debug_color = Color(1.4920532e-06, 0.64216495, 0.32755172, 0.41960785)
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SpawnPoints"]
+position = Vector2(150, 100)
+
+[node name="Node2D2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1002, 100)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Ramp" parent="Obstacles" instance=ExtResource("1_n5v07")]
+position = Vector2(1002, 354)
+scale = Vector2(3, 5)
+
+[node name="Ramp2" parent="Obstacles" instance=ExtResource("1_n5v07")]
+position = Vector2(150, 355)
+rotation = 0.0
+scale = Vector2(5, 3)
+
+[node name="Scrollbar" parent="Obstacles" instance=ExtResource("2_2wdis")]
+position = Vector2(149, 216)
+
+[node name="Scrollbar2" parent="Obstacles" instance=ExtResource("2_2wdis")]
+position = Vector2(1002.99994, 222)
