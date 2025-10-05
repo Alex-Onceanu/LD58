@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2q7wf26wkxtn"]
+
+[ext_resource type="PackedScene" uid="uid://bqm2bx6jx6xym" path="res://Scenes/Obstacles/physics_obstacle2.tscn" id="1_7t06c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b07c4"]
+size = Vector2(158, 83)
+
+[node name="level" type="Node2D"]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SpawnPoints"]
+position = Vector2(189, 20)
+
+[node name="Node2D2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(243, 21)
+
+[node name="Node2D3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(888, 30)
+
+[node name="Node2D4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(942, 31)
+
+[node name="Node2D5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(276, 199)
+
+[node name="Node2D6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(822, 190)
+
+[node name="WinAreas" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="WinAreas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinAreas/Area2D"]
+position = Vector2(564, 456.5)
+shape = SubResource("RectangleShape2D_b07c4")
+
+[node name="Area2D2" type="Area2D" parent="WinAreas"]
+position = Vector2(0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinAreas/Area2D2"]
+position = Vector2(564, 456.5)
+shape = SubResource("RectangleShape2D_b07c4")
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="StaticBody2D" parent="Obstacles" instance=ExtResource("1_7t06c")]
+position = Vector2(209, 226)
+
+[node name="StaticBody2D2" parent="Obstacles" instance=ExtResource("1_7t06c")]
+position = Vector2(911, 229)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+
+[node name="StaticBody2D3" parent="Obstacles" instance=ExtResource("1_7t06c")]
+position = Vector2(212, 226)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+
+[node name="StaticBody2D4" parent="Obstacles" instance=ExtResource("1_7t06c")]
+position = Vector2(911, 230)

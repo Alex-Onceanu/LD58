@@ -17,6 +17,9 @@ func _ready() -> void:
 
 func _on_pickable_clicked(obj):
 	if !held_object and can_pick:
+		get_parent().get_node("Next").disabled = false
+		if get_parent().who_bets >= get_parent().who_plays.size() - 1:
+			get_parent().get_node("StartGame").disabled = false
 		obj.pickup()
 		held_object = obj
 		

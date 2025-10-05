@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3uirosy8e4i1"]
+[gd_scene load_steps=5 format=3 uid="uid://b3uirosy8e4i1"]
 
 [ext_resource type="Script" uid="uid://d3lhck1slhebb" path="res://Script/Menu/tactical_phase.gd" id="1_qelru"]
 [ext_resource type="Shader" uid="uid://bvkisly5xaids" path="res://Shaders/Menu/menu_background.gdshader" id="2_ah8cx"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o448h"]
 shader = ExtResource("2_ah8cx")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o448h"]
-size = Vector2(1877, 123)
 
 [node name="TacticalPhase" type="Node2D"]
 script = ExtResource("1_qelru")
@@ -23,16 +20,6 @@ offset_bottom = 649.0
 mouse_filter = 2
 
 [node name="Level" type="Node2D" parent="."]
-
-[node name="level" type="Node2D" parent="Level"]
-
-[node name="WinAreas" type="Node2D" parent="Level/level"]
-
-[node name="Area2D" type="Area2D" parent="Level/level/WinAreas"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/level/WinAreas/Area2D"]
-position = Vector2(564.5, 701.5)
-shape = SubResource("RectangleShape2D_o448h")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 

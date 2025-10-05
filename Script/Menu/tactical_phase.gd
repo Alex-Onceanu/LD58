@@ -11,6 +11,7 @@ var last_spawn_selected
 var level # TODO : level.tscn ici
 var remainder
 @onready var was_held := [false, false, false, false]
+var curr_lvl
 
 var held_obstacle
 
@@ -22,16 +23,15 @@ func _finished(body : Node2D):
 		winner = int(body.name.substr(body.name.length() - 1, 1))
 
 func _ready():
-	if level:
-		var l = level.instantiate()
-		l.name = "level"
-		$Level.add_child(l)
-	for winArea in $Level/level/WinAreas.get_children():
+	var l = level.instantiate()
+	l.name = "level"
+	$Level.add_child(l)
+	for winArea in get_node("Level/level/WinAreas").get_children():
 		winArea.body_entered.connect(_finished)
 		
-	for sp in spawnPoints: # for ch in $Level/level/SpawnPoints.get_children() ...... sp = ch.global_position
+	for ch in get_node("Level/level/SpawnPoints").get_children():
 		var nwsp = SPAWN_POINT_SCENE.instantiate()
-		nwsp.global_position = sp
+		nwsp.global_position = ch.global_position
 		$SpawnPoints.add_child(nwsp)
 
 	for k in marbles_per_player.keys():
@@ -47,7 +47,7 @@ func _ready():
 			# nw.position = Vector2(150. + 300. * (k - 1), 500.)
 			get_node("Marbles/" + str(k)).add_child(nw)
 
-	for i in range(1, 5): # in who_plays si jamais
+	for i in range(1, 5):
 		var ob = obstacles[i - 1].instantiate()
 		get_node("DraggableObstacle" + str(i) + "/Body").add_child(ob)
 		get_node("DraggableObstacle" + str(i)).visible = true
@@ -112,18 +112,18 @@ func _process(delta: float):
 
 		var lose_per_player = {}
 		if not winner:
-			for k in remainder.keys():
-				for k2 in marbles_per_player.keys():
-					remainder[k].append(marbles_per_player[k2])
+			for k in marbles_per_player.keys():
+				remainder[k].append_array(marbles_per_player[k])
 		var tmp_who_plays = []
 		for i in who_plays:
 			if remainder[i].size() > 0 or i == winner:
 				tmp_who_plays.append(i)
 			if winner and i != winner:
 				lose_per_player[i] = marbles_per_player[i]
-		for i in marbles_per_player[winner]:
-			remainder[winner].append(i)
-		nw.memento_mori(tmp_who_plays, winner, lose_per_player, remainder)
+		if winner:
+			for i in marbles_per_player[winner]:
+				remainder[winner].append(i)
+		nw.memento_mori(tmp_who_plays, winner, lose_per_player, remainder, curr_lvl + 1)
 		nw.name = "SelectionMenu"
 
 		get_tree().root.add_child(nw)
