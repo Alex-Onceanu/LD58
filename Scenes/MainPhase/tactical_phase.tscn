@@ -71,5 +71,10 @@ position = Vector2(644, 546)
 [node name="DraggableObstacle4" parent="." instance=ExtResource("3_o448h")]
 position = Vector2(894, 546)
 
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Launch" to="." method="_on_launch_pressed"]
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

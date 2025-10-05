@@ -19,8 +19,10 @@ var held_obstacle
 @onready var whose_turn := 0
 
 func _finished(body : Node2D):
-	if not winner:
-		winner = int(body.name.substr(body.name.length() - 1, 1))
+	if body.has_method("apply_impulse"):
+		if not winner and not body.freeze:
+			winner = int(body.name.substr(body.name.length() - 1, 1))
+			$EndTimer.start()
 
 func _ready():
 	var l = level.instantiate()
@@ -107,24 +109,29 @@ func _process(delta: float):
 			if not ch.stable:
 				all_stables = false
 	if all_stables:
-		var MENU_SCENE = load("res://Scenes/Menus/selection_menu.tscn")
-		var nw = MENU_SCENE.instantiate()
+		_on_end_timer_timeout()
+		
 
-		var lose_per_player = {}
-		if not winner:
-			for k in marbles_per_player.keys():
-				remainder[k].append_array(marbles_per_player[k])
-		var tmp_who_plays = []
-		for i in who_plays:
-			if remainder[i].size() > 0 or i == winner:
-				tmp_who_plays.append(i)
-			if winner and i != winner:
-				lose_per_player[i] = marbles_per_player[i]
-		if winner:
-			for i in marbles_per_player[winner]:
-				remainder[winner].append(i)
-		nw.memento_mori(tmp_who_plays, winner, lose_per_player, remainder, curr_lvl + 1)
-		nw.name = "SelectionMenu"
 
-		get_tree().root.add_child(nw)
-		get_node("/root/TacticalPhase").free.call_deferred()
+func _on_end_timer_timeout() -> void:
+	var MENU_SCENE = load("res://Scenes/Menus/selection_menu.tscn")
+	var nw = MENU_SCENE.instantiate()
+
+	var lose_per_player = {}
+	if not winner:
+		for k in marbles_per_player.keys():
+			remainder[k].append_array(marbles_per_player[k])
+	var tmp_who_plays = []
+	for i in who_plays:
+		if remainder[i].size() > 0 or i == winner:
+			tmp_who_plays.append(i)
+		if winner and i != winner:
+			lose_per_player[i] = marbles_per_player[i]
+	if winner:
+		for i in marbles_per_player[winner]:
+			remainder[winner].append(i)
+	nw.memento_mori(tmp_who_plays, winner, lose_per_player, remainder, curr_lvl + 1)
+	nw.name = "SelectionMenu"
+
+	get_tree().root.add_child(nw)
+	get_node("/root/TacticalPhase").free.call_deferred()
