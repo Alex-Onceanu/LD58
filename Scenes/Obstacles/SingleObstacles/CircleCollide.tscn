@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5dpos4edw2qy"]
+
+[ext_resource type="Texture2D" uid="uid://djqm5je8app4s" path="res://Assets/windows-vista.png" id="1_qqhdy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2a25n"]
+radius = 49.0408
+
+[node name="CircleCollide" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.19140625, 0.19140626)
+texture = ExtResource("1_qqhdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.9073486e-06)
+shape = SubResource("CircleShape2D_2a25n")

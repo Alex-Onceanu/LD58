@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3uirosy8e4i1"]
+[gd_scene load_steps=13 format=3 uid="uid://b3uirosy8e4i1"]
 
 [ext_resource type="Script" uid="uid://d3lhck1slhebb" path="res://Script/Menu/tactical_phase.gd" id="1_qelru"]
 [ext_resource type="Shader" uid="uid://bvkisly5xaids" path="res://Shaders/Menu/menu_background.gdshader" id="2_ah8cx"]
+[ext_resource type="PackedScene" uid="uid://ddp5dsv87ka5u" path="res://Scenes/Obstacles/SingleObstacles/TriangleSplit.tscn" id="3_1cadd"]
+[ext_resource type="PackedScene" uid="uid://dv8mjelj1s627" path="res://Scenes/Obstacles/SingleObstacles/SpinningRectangle.tscn" id="3_5eh1f"]
 [ext_resource type="PackedScene" uid="uid://cjs1xkph7r2p" path="res://Scenes/Obstacles/draggable_obstacle.tscn" id="3_o448h"]
+[ext_resource type="PackedScene" uid="uid://b5dpos4edw2qy" path="res://Scenes/Obstacles/SingleObstacles/CircleCollide.tscn" id="4_u4661"]
+[ext_resource type="PackedScene" uid="uid://df2s8nqk4uixk" path="res://Scenes/Obstacles/SingleObstacles/Windmill.tscn" id="6_3cuwj"]
+[ext_resource type="PackedScene" uid="uid://bx353tcm5nx77" path="res://Scenes/Obstacles/SingleObstacles/Ramp.tscn" id="7_8q6y4"]
+[ext_resource type="PackedScene" uid="uid://7v0kkvyph5qv" path="res://Scenes/Obstacles/SingleObstacles/Funnel.tscn" id="8_k1jnv"]
+[ext_resource type="PackedScene" uid="uid://bm7ui3nm70x2b" path="res://Scenes/Obstacles/SingleObstacles/Scrollbar.tscn" id="9_oar8e"]
+[ext_resource type="PackedScene" uid="uid://3pnlrd0mm82" path="res://Scenes/Obstacles/SingleObstacles/Bubble.tscn" id="10_pwttk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o448h"]
 shader = ExtResource("2_ah8cx")
@@ -20,6 +28,32 @@ offset_bottom = 649.0
 mouse_filter = 2
 
 [node name="Level" type="Node2D" parent="."]
+
+[node name="TriangleSplit" parent="Level" instance=ExtResource("3_1cadd")]
+position = Vector2(151, 391)
+script = null
+
+[node name="SpinningRectangle" parent="Level" instance=ExtResource("3_5eh1f")]
+position = Vector2(304, 341)
+
+[node name="CircleCollide" parent="Level" instance=ExtResource("4_u4661")]
+position = Vector2(197, 273)
+
+[node name="Windmill" parent="Level" instance=ExtResource("6_3cuwj")]
+position = Vector2(326, 247)
+
+[node name="Ramp" parent="Level" instance=ExtResource("7_8q6y4")]
+position = Vector2(401, 369.00003)
+
+[node name="Funnel" parent="Level" instance=ExtResource("8_k1jnv")]
+position = Vector2(529, 247)
+
+[node name="Scrollbar" parent="Level" instance=ExtResource("9_oar8e")]
+position = Vector2(629, 381)
+vertical = true
+
+[node name="Bubble" parent="Level" instance=ExtResource("10_pwttk")]
+position = Vector2(730, 362)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
