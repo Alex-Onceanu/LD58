@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcxqxeb73dolj"]
+
+[ext_resource type="PackedScene" uid="uid://cytww5d5v6ygk" path="res://Scenes/Levels/border_walls.tscn" id="1_ox14v"]
+[ext_resource type="PackedScene" uid="uid://bm7ui3nm70x2b" path="res://Scenes/Obstacles/SingleObstacles/Scrollbar.tscn" id="2_qmk3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox14v"]
+size = Vector2(152, 687)
+
+[node name="Level7" type="Node2D"]
+
+[node name="WinAreas" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="WinAreas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinAreas/Area2D"]
+position = Vector2(1136, 327.5)
+shape = SubResource("RectangleShape2D_ox14v")
+debug_color = Color(0, 0.6351427, 0.42448717, 0.41960785)
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SpawnPoints"]
+position = Vector2(79, 68)
+
+[node name="Node2D2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(78, 265)
+
+[node name="Node2D3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(83, 452)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="BorderWalls" parent="Obstacles" instance=ExtResource("1_ox14v")]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Obstacles"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D3"]
+polygon = PackedVector2Array(-13, 508, 1210, 589, 1210, 660, -18, 671)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/StaticBody2D3"]
+polygon = PackedVector2Array(-13, 508, 1210, 589, 1210, 660, -18, 671)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Obstacles"]
+
+[node name="Polygon2D2" type="Polygon2D" parent="Obstacles/StaticBody2D2"]
+position = Vector2(-2, 35)
+polygon = PackedVector2Array(-15, 354, 1174, 469, 1174, 389, -15, 276)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/StaticBody2D2"]
+position = Vector2(0, 6)
+polygon = PackedVector2Array(-16, 383, 1173, 498, 1173, 418, -16, 305)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Obstacles"]
+
+[node name="Polygon2D3" type="Polygon2D" parent="Obstacles/StaticBody2D"]
+position = Vector2(-2, -154)
+polygon = PackedVector2Array(-15, 354, 1174, 469, 1174, 389, -15, 276)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Obstacles/StaticBody2D"]
+position = Vector2(-5, 0)
+polygon = PackedVector2Array(-11, 200, 1178, 315, 1178, 235, -11, 122)
+
+[node name="Scrollbar" parent="Obstacles" instance=ExtResource("2_qmk3e")]
+position = Vector2(564, 321)
+vertical = true
+range = 200.0
+
+[node name="Scrollbar2" parent="Obstacles" instance=ExtResource("2_qmk3e")]
+position = Vector2(213, 51)
+vertical = true
+range = 50.0
+
+[node name="Scrollbar3" parent="Obstacles" instance=ExtResource("2_qmk3e")]
+position = Vector2(807, 621)
+vertical = true
+range = 50.0
