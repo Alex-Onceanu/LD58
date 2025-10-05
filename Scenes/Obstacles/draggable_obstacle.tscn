@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjs1xkph7r2p"]
+
+[ext_resource type="Script" uid="uid://cj7g4y5jnpvgr" path="res://Script/Obstacles/draggable_obstacle.gd" id="1_ylhgg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qosr0"]
+size = Vector2(210, 151)
+
+[node name="DraggableObstacle" type="Node2D"]
+script = ExtResource("1_ylhgg")
+metadata/_edit_horizontal_guides_ = [128.0]
+metadata/_edit_vertical_guides_ = [110.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -46.0
+offset_top = -13.0
+offset_right = 164.0
+offset_bottom = 139.0
+mouse_filter = 2
+color = Color(0.43137255, 0.43137255, 0.43137255, 0.28235295)
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(59, 63.5)
+shape = SubResource("RectangleShape2D_qosr0")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

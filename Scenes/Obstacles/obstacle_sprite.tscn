@@ -11,3 +11,5 @@ shader = ExtResource("1_s3mdv")
 material = SubResource("ShaderMaterial_dimsg")
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(4, 4)
+mouse_filter = 2

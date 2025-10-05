@@ -16,14 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_bbd4k")
-metadata/_edit_horizontal_guides_ = [-351.0]
-metadata/_edit_vertical_guides_ = [1794.0, 288.0, 576.0, -655.0, 863.0]
+metadata/_edit_horizontal_guides_ = [-351.0, 832.0]
+metadata/_edit_vertical_guides_ = [1794.0, 285.0, 576.0, -655.0, 863.0]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(306, 541)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-266, -92, -244, -21, -159, 55, 154, 84, 536, 82, 751, 54, 793, -2, 814, -87, 809, -132, 780, -87, 745, -51, 697, -5, 615, 19, 485, 32, 338, 41, 175, 35, 83, 35, -9, 22, -87, -5, -174, -40, -248, -82)
+polygon = PackedVector2Array(-266, -92, -258, 53, -162, 71, 93, 103, 536, 103, 783, 89, 834, 6, 834, -85, 834, -151, 780, -87, 745, -51, 689, -19, 610, 4, 494, 21, 353, 33, 171, 32, 82, 23, -12, 5, -103, -36, -180, -84, -271, -189)
 
 [node name="Background" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ik41r")
@@ -48,7 +48,7 @@ clrName = "Yellow"
 clr = Color(1, 1, 0, 1)
 
 [node name="PlayerSelect4" parent="." instance=ExtResource("3_dj8c6")]
-position = Vector2(1014, 300)
+position = Vector2(1000, 300)
 clrName = "Green"
 clr = Color(0, 1, 0, 1)
 
@@ -61,6 +61,15 @@ offset_bottom = 626.0
 mouse_filter = 1
 disabled = true
 text = "PLAY"
+
+[node name="WhoseTurn" type="Label" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 555.0
+offset_right = 299.0
+offset_bottom = 606.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Next" type="Button" parent="."]
 visible = false

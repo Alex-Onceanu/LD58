@@ -4,17 +4,19 @@ extends Node2D
 @export var clr : Color
 
 @onready var held_object = null
-@onready var can_pick = false
+var can_pick
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Background/Label.text = clrName
 	$Background/BackgroundImg.color = clr
 	$Background/BackgroundImg.color.a = 0.4
+	
+	for ch in $Marbles.get_children():
+		ch.get_node("PhysicsMarble/MarbleSprite/ColorRect").material.set("shader_parameter/team_color", clr)
 
 func _on_pickable_clicked(obj):
 	if !held_object and can_pick:
-		print(can_pick, clrName)
 		obj.pickup()
 		held_object = obj
 
@@ -23,8 +25,6 @@ func _unhandled_input(event):
 		if held_object and !event.pressed:
 			held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null
-			
-
 
 func _on_add_player_pressed() -> void:
 	$AddPlayer.visible = false
@@ -33,7 +33,8 @@ func _on_add_player_pressed() -> void:
 	create_tween().tween_property($Background, "position", Vector2($Background.position.x, $Background.position.y-730.), 0.7).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	create_tween().tween_property($Marbles, "position", Vector2($Marbles.position.x, $Marbles.position.y-730.), 0.7).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	get_parent().nb_ready += 1
-	get_node("../Play").disabled = false
+	if get_parent().nb_ready > 1:
+		get_node("../Play").disabled = false
 
 func _on_remove_player_pressed() -> void:
 	$Background/RemovePlayer.visible = false
@@ -42,5 +43,5 @@ func _on_remove_player_pressed() -> void:
 	$Marbles.visible = false
 	create_tween().tween_property($Marbles, "position", Vector2($Marbles.position.x, $Marbles.position.y+730.), 0.7).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	get_parent().nb_ready -= 1
-	if get_parent().nb_ready <= 0:
+	if get_parent().nb_ready <= 1:
 		get_node("../Play").disabled = true

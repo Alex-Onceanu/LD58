@@ -6,3 +6,5 @@ export.cfg
 export_credentials.cfg
 .nomedia
 *.import
+.DS_Store/
+*.DS_Store

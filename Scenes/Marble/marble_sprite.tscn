@@ -3,7 +3,9 @@
 [ext_resource type="Shader" uid="uid://02vthc6ipp7n" path="res://Shaders/Marble/marble.gdshader" id="1_chly2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_chly2"]
+resource_local_to_scene = true
 shader = ExtResource("1_chly2")
+shader_parameter/team_color = Color(0, 0, 0, 1)
 
 [node name="MarbleSprite" type="Node2D"]
 
@@ -12,4 +14,5 @@ physics_interpolation_mode = 1
 material = SubResource("ShaderMaterial_chly2")
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
 mouse_filter = 2
