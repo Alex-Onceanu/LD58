@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://bji3kqwdpfhug"]
+
+[ext_resource type="PackedScene" uid="uid://cytww5d5v6ygk" path="res://Scenes/Levels/border_walls.tscn" id="1_x0sqe"]
+[ext_resource type="PackedScene" uid="uid://df2s8nqk4uixk" path="res://Scenes/Obstacles/SingleObstacles/Windmill.tscn" id="2_dtfwk"]
+[ext_resource type="PackedScene" uid="uid://bx353tcm5nx77" path="res://Scenes/Obstacles/SingleObstacles/Ramp.tscn" id="3_dtfwk"]
+[ext_resource type="PackedScene" uid="uid://bm7ui3nm70x2b" path="res://Scenes/Obstacles/SingleObstacles/Scrollbar.tscn" id="4_myn83"]
+[ext_resource type="PackedScene" uid="uid://dhrcpimvnmjt3" path="res://Scenes/Obstacles/SingleObstacles/Teleporter.tscn" id="5_wj752"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myn83"]
+size = Vector2(306, 137)
+
+[node name="Level5" type="Node2D"]
+
+[node name="WinAreas" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="WinAreas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinAreas/Area2D"]
+position = Vector2(601, 617)
+shape = SubResource("RectangleShape2D_myn83")
+debug_color = Color(0, 0.63459456, 0.43088982, 0.41960785)
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SpawnPoints"]
+position = Vector2(894, 126)
+
+[node name="Node2D2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(274, 124)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="BorderWalls" parent="Obstacles" instance=ExtResource("1_x0sqe")]
+
+[node name="Windmill" parent="Obstacles" instance=ExtResource("2_dtfwk")]
+position = Vector2(475, 476)
+angular_velocity = -4.0
+
+[node name="Windmill2" parent="Obstacles" instance=ExtResource("2_dtfwk")]
+position = Vector2(695, 474)
+angular_velocity = 4.0
+
+[node name="Ramp" parent="Obstacles" instance=ExtResource("3_dtfwk")]
+position = Vector2(894.9999, 222.99997)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Obstacles"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/StaticBody2D"]
+position = Vector2(0, 91.79999)
+polygon = PackedVector2Array(-35, 437, 480, 331, 480, 437)
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D"]
+position = Vector2(0, 91.79999)
+polygon = PackedVector2Array(-35, 437, 480, 331, 480, 437)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Obstacles"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/StaticBody2D2"]
+position = Vector2(0, 91.79999)
+polygon = PackedVector2Array(1213, 437, 698, 331, 698, 437)
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D2"]
+position = Vector2(0, 91.79999)
+polygon = PackedVector2Array(1213, 437, 698, 331, 698, 437)
+
+[node name="Scrollbar" parent="Obstacles" instance=ExtResource("4_myn83")]
+position = Vector2(769, 350)
+
+[node name="Scrollbar2" parent="Obstacles" instance=ExtResource("4_myn83")]
+position = Vector2(396, 350)
+
+[node name="Ramp2" parent="Obstacles" instance=ExtResource("3_dtfwk")]
+position = Vector2(275.00015, 220.99997)
+rotation = 0.0
+
+[node name="Teleporter" parent="Obstacles" instance=ExtResource("5_wj752")]
+position = Vector2(55, 507)
+spacingX = 250.0
+spacingY = -450.0
+
+[node name="Teleporter2" parent="Obstacles" instance=ExtResource("5_wj752")]
+position = Vector2(1102, 507)
+spacingX = -250.0
+spacingY = -450.0
