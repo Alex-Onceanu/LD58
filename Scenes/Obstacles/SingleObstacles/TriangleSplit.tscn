@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddp5dsv87ka5u"]
-
-[ext_resource type="Script" uid="uid://djk4ioscda6rg" path="res://Scenes/Obstacles/SingleObstacles/triangle_split.gd" id="1_07ljh"]
+[gd_scene format=3 uid="uid://ddp5dsv87ka5u"]
 
 [node name="TriangleSplit" type="StaticBody2D"]
-script = ExtResource("1_07ljh")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-95, -7, 0, -14, 95, -7, 95, 11, -95, 11)

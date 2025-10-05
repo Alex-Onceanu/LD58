@@ -1,7 +1,7 @@
 extends Control
 
 const all_levels = ["res://Scenes/Levels/test_level.tscn"]
-const all_obstacles= ["res://Scenes/Obstacles/physics_obstacle2.tscn", "res://Scenes/Obstacles/physics_obstacle.tscn", "res://Scenes/Obstacles/slope2.tscn", "res://Scenes/Obstacles/physics_obstacle2.tscn", "res://Scenes/Obstacles/physics_obstacle.tscn", "res://Scenes/Obstacles/slope2.tscn"]
+const all_obstacles= ["BlackHole", "Bubble", "CircleCollide", "Funnel", "Ramp", "Scrollbar", "SpinningRectangle", "Teleporter", "TriangleSplit", "Windmill"]
 
 const GAME_SCENE = preload("res://Scenes/MainPhase/tactical_phase.tscn")
 
@@ -37,7 +37,7 @@ func _on_play_pressed() -> void:
 		nw.marbles_per_player[i] = [1]
 		nw.remainder[i] = [1, 1, 1, 1]
 	nw.who_plays = who_plays
-	nw.obstacles = [load(all_obstacles.pick_random()), load(all_obstacles.pick_random()), load(all_obstacles.pick_random()), load(all_obstacles.pick_random())]
+	nw.obstacles = [load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn")]
 
 	nw.level = load(all_levels[curr_level])
 	nw.spawnPoints = [Vector2(150, 50), Vector2(433, 50), Vector2(725, 50), Vector2(1000, 50), Vector2(150, 150), Vector2(433, 150), Vector2(725, 150), Vector2(1000, 150)]
@@ -74,7 +74,7 @@ func _on_start_game_pressed() -> void:
 			else:
 				nw.remainder[i].append(int(ch.get_node("PhysicsMarble").mass))
 	nw.who_plays = who_plays
-	nw.obstacles = [load(all_obstacles.pick_random()), load(all_obstacles.pick_random()), load(all_obstacles.pick_random()), load(all_obstacles.pick_random())]
+	nw.obstacles = [load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn")]
 	nw.curr_lvl = curr_level
 	nw.spawnPoints = [Vector2(150, 50), Vector2(433, 50), Vector2(725, 50), Vector2(1000, 50), Vector2(150, 150), Vector2(433, 150), Vector2(725, 150), Vector2(1000, 150)]
 	
