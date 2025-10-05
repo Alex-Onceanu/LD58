@@ -12,7 +12,9 @@ shader_parameter/team_color = Color(0, 0, 0, 1)
 [node name="ColorRect" type="ColorRect" parent="."]
 physics_interpolation_mode = 1
 material = SubResource("ShaderMaterial_chly2")
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 30.0
+offset_bottom = 30.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2

@@ -19,11 +19,24 @@ func _on_pickable_clicked(obj):
 	if !held_object and can_pick:
 		obj.pickup()
 		held_object = obj
+		
+func merge(toDestroy, toGrow):
+	toDestroy.free.call_deferred()
+	toGrow.get_node("PhysicsMarble").mass *= 2
+	toGrow.get_node("PhysicsMarble/MarbleSprite").scale *= 2
+	toGrow.get_node("PhysicsMarble/CollisionShape2D").scale *= 2
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if held_object and !event.pressed:
-			held_object.drop(Input.get_last_mouse_velocity())
+			var merged := false
+			for m in $Marbles.get_children():
+				if m != held_object and m.mouse_in and int(m.get_node("PhysicsMarble").mass) == int(held_object.get_node("PhysicsMarble").mass):
+					merge(held_object, m)
+					merged = true
+					break
+			if not merged:
+				held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null
 
 func _on_add_player_pressed() -> void:
