@@ -30,6 +30,14 @@ position = Vector2(1083, 87.75)
 shape = SubResource("RectangleShape2D_3f8mu")
 debug_color = Color(0, 0.6421053, 0.32853514, 0.41960785)
 
+[node name="ColorRect" type="ColorRect" parent="WinAreas/Area2D"]
+offset_left = 989.0
+offset_top = -17.0
+offset_right = 1177.0
+offset_bottom = 183.0
+mouse_filter = 2
+color = Color(0, 1, 0, 0.39215687)
+
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="BorderWalls" parent="Obstacles" instance=ExtResource("1_pqo0d")]

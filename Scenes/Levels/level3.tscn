@@ -16,6 +16,14 @@ position = Vector2(571, 672)
 shape = SubResource("RectangleShape2D_pcvc2")
 debug_color = Color(1.4920532e-06, 0.64216495, 0.32755172, 0.41960785)
 
+[node name="ColorRect" type="ColorRect" parent="WinAreas/Area2D"]
+offset_left = 425.0
+offset_top = 604.0
+offset_right = 723.0
+offset_bottom = 736.0
+mouse_filter = 2
+color = Color(0, 1, 0, 0.3882353)
+
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="Node2D" type="Node2D" parent="SpawnPoints"]
@@ -27,10 +35,10 @@ position = Vector2(1002, 100)
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Ramp" parent="Obstacles" instance=ExtResource("2_5oy68")]
-position = Vector2(1002, 354)
+position = Vector2(1041, 354.00003)
 scale = Vector2(3, 5)
 
 [node name="Ramp2" parent="Obstacles" instance=ExtResource("2_5oy68")]
-position = Vector2(150, 355)
+position = Vector2(108, 355)
 rotation = 0.0
 scale = Vector2(5, 3)

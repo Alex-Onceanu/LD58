@@ -19,6 +19,14 @@ position = Vector2(61, 550)
 shape = SubResource("RectangleShape2D_iakf0")
 debug_color = Color(0, 0.6433477, 0.30727905, 0.41960785)
 
+[node name="ColorRect" type="ColorRect" parent="WinAreas/Area2D"]
+offset_left = -10.0
+offset_top = 443.0
+offset_right = 124.0
+offset_bottom = 650.0
+mouse_filter = 2
+color = Color(0, 1, 0, 0.39607844)
+
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="Node2D" type="Node2D" parent="SpawnPoints"]

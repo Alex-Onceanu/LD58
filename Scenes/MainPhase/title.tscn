@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd61svtnmitp1"]
+
+[ext_resource type="AudioStream" uid="uid://wl2aftxa26ee" path="res://LD58.wav" id="1_48pfh"]
+[ext_resource type="AudioStream" uid="uid://0yvowo1d86ta" path="res://Microsoft Windows 95 Startup Sound.mp3" id="1_j8h15"]
+[ext_resource type="Script" uid="uid://0x7k4jvk54k0" path="res://Scenes/MainPhase/title.gd" id="1_m6dyx"]
+[ext_resource type="PackedScene" uid="uid://dsdc0a2xxlsnk" path="res://Scenes/Menus/selection_menu.tscn" id="2_j8h15"]
+[ext_resource type="Texture2D" uid="uid://ciqin7208bjs3" path="res://Assets/title.jpg" id="5_gmryq"]
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_m6dyx")
+
+[node name="StartupSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-341, 1242)
+stream = ExtResource("1_j8h15")
+
+[node name="Ld58" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(344, 1773)
+stream = ExtResource("1_48pfh")
+
+[node name="SelectionMenu" parent="." instance=ExtResource("2_j8h15")]
+
+[node name="TitleLayer" type="Node2D" parent="."]
+
+[node name="Title" type="Sprite2D" parent="TitleLayer"]
+position = Vector2(538, 320)
+scale = Vector2(2.9349775, 2.9349775)
+texture = ExtResource("5_gmryq")
+
+[node name="Button" type="Button" parent="TitleLayer"]
+offset_left = 347.0
+offset_top = 430.0
+offset_right = 794.0
+offset_bottom = 537.0
+text = "Start Game"
+
+[node name="Label" type="Label" parent="TitleLayer"]
+offset_left = 243.0
+offset_top = 128.0
+offset_right = 914.0
+offset_bottom = 308.0
+text = "Marble XP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TitleLayer/Button" to="." method="_on_button_pressed"]

@@ -14,6 +14,6 @@ func pop(body):
 		free.call_deferred()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if (body.has_method("apply_impulse")):
+	if (body.has_method("apply_impulse") and not body.freeze):
 		get_tree().create_tween().tween_callback(pop.bind(body)).set_delay(0.05)
 		get_tree().create_tween().tween_property($Sprite2D, "scale", Vector2(0.3, 0.3), 0.05).set_trans(Tween.TRANS_QUINT)

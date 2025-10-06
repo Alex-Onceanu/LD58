@@ -32,6 +32,14 @@ position = Vector2(15.5, 13.5)
 shape = SubResource("RectangleShape2D_0xrym")
 debug_color = Color(0, 0.6361711, 0.4121153, 0.41960785)
 
+[node name="ColorRect" type="ColorRect" parent="WinAreas/Area2D"]
+offset_left = -567.0
+offset_top = -9.0
+offset_right = 593.0
+offset_bottom = 46.0
+mouse_filter = 2
+color = Color(0, 1, 0, 0.3882353)
+
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="TriangleSplit" parent="Obstacles" instance=ExtResource("1_16p8j")]

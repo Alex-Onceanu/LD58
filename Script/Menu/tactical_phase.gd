@@ -133,5 +133,5 @@ func _on_end_timer_timeout() -> void:
 	nw.memento_mori(tmp_who_plays, winner, lose_per_player, remainder, curr_lvl + 1)
 	nw.name = "SelectionMenu"
 
-	get_tree().root.add_child(nw)
+	get_tree().root.get_node("Title").add_child(nw)
 	get_node("/root/TacticalPhase").free.call_deferred()

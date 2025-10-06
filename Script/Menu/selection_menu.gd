@@ -1,7 +1,7 @@
 extends Control
 
 #const all_levels = ["res://Scenes/Levels/test_level.tscn"]
-const all_levels = ["res://Scenes/Levels/level7.tscn"]
+const all_levels = ["res://Scenes/Levels/level1.tscn", "res://Scenes/Levels/level2.tscn", "res://Scenes/Levels/level3.tscn", "res://Scenes/Levels/level4.tscn","res://Scenes/Levels/level5.tscn","res://Scenes/Levels/level6.tscn","res://Scenes/Levels/level7.tscn"]
 const all_obstacles= ["BlackHole", "Bubble", "CircleCollide", "Funnel", "Ramp", "Scrollbar", "SpinningRectangle", "Teleporter", "TriangleSplit", "Windmill"]
 
 const GAME_SCENE = preload("res://Scenes/MainPhase/tactical_phase.tscn")
@@ -45,7 +45,7 @@ func _on_play_pressed() -> void:
 	nw.curr_lvl = curr_level
 
 	get_tree().root.add_child(nw)
-	get_node("/root/SelectionMenu").free.call_deferred()
+	get_node("/root/Title/SelectionMenu").free.call_deferred()
 
 func _on_next_pressed() -> void:
 	get_node("PlayerSelect" + str(who_plays[who_bets])).can_pick = false
@@ -78,9 +78,9 @@ func _on_start_game_pressed() -> void:
 	nw.obstacles = [load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn")]
 	nw.curr_lvl = curr_level
 	nw.spawnPoints = [Vector2(150, 50), Vector2(433, 50), Vector2(725, 50), Vector2(1000, 50), Vector2(150, 150), Vector2(433, 150), Vector2(725, 150), Vector2(1000, 150)]
-	
+	nw.name = "TacticalPhase"
 	get_tree().root.add_child(nw)
-	get_node("/root/SelectionMenu").free.call_deferred()
+	get_node("/root/Title/SelectionMenu").free.call_deferred()
 
 func memento_mori(wp, winner, lose_per_player, remainder, curr_lvl):
 	#print(wp, winner, lose_per_player, remainder)

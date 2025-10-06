@@ -19,7 +19,7 @@ offset_right = 34.0
 offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "+"
+text = "Add Player"
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(-601, 181)
