@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3uirosy8e4i1"]
+[gd_scene load_steps=6 format=3 uid="uid://b3uirosy8e4i1"]
 
 [ext_resource type="Script" uid="uid://d3lhck1slhebb" path="res://Script/Menu/tactical_phase.gd" id="1_qelru"]
 [ext_resource type="Texture2D" uid="uid://bfsa2yubkgaly" path="res://Assets/windows_xp_background.jpg" id="2_1cadd"]
+[ext_resource type="Texture2D" uid="uid://c480cg3alk2av" path="res://Assets/obspop.png" id="3_1cadd"]
 [ext_resource type="PackedScene" uid="uid://cjs1xkph7r2p" path="res://Scenes/Obstacles/draggable_obstacle.tscn" id="3_o448h"]
+[ext_resource type="Texture2D" uid="uid://dvglsegh7oy0l" path="res://Assets/vide.png" id="5_5eh1f"]
 
 [node name="TacticalPhase" type="Node2D"]
 script = ExtResource("1_qelru")
 metadata/_edit_vertical_guides_ = [-574.0, -464.0, 399.0]
-metadata/_edit_horizontal_guides_ = [558.0]
+metadata/_edit_horizontal_guides_ = [558.0, 846.0]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575, 322.99997)
@@ -28,48 +30,69 @@ texture = ExtResource("2_1cadd")
 
 [node name="4" type="Node2D" parent="Marbles"]
 
-[node name="WhoseTurn" type="Label" parent="."]
-offset_left = 893.0
-offset_top = 19.0
-offset_right = 1137.69
-offset_bottom = 55.150024
+[node name="Obspop" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.87058824)
+z_index = 2
+position = Vector2(576, 525.75)
+scale = Vector2(1.7909805, 1.7817465)
+texture = ExtResource("3_1cadd")
+
+[node name="DraggableObstacle1" parent="Obspop" instance=ExtResource("3_o448h")]
+position = Vector2(-246.23384, 13.049011)
+scale = Vector2(0.55835336, 0.56124705)
+
+[node name="DraggableObstacle2" parent="Obspop" instance=ExtResource("3_o448h")]
+position = Vector2(-109.437256, 13.049011)
+scale = Vector2(0.55835336, 0.56124705)
+
+[node name="DraggableObstacle3" parent="Obspop" instance=ExtResource("3_o448h")]
+position = Vector2(107.76221, 13.049011)
+scale = Vector2(0.55835336, 0.56124705)
+
+[node name="DraggableObstacle4" parent="Obspop" instance=ExtResource("3_o448h")]
+position = Vector2(246.23386, 13.61026)
+scale = Vector2(0.55835336, 0.56124705)
+
+[node name="uppopup" type="Node2D" parent="."]
+
+[node name="WhoseTurn" type="Label" parent="uppopup"]
+z_index = 2
+offset_left = 980.2
+offset_top = 37.22
+offset_right = 1136.2
+offset_bottom = 91.87
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Next" type="Button" parent="."]
-offset_left = 1038.0
-offset_top = 592.0
-offset_right = 1145.0
-offset_bottom = 639.0
-disabled = true
-text = "NEXT"
+[node name="Vide" type="Sprite2D" parent="uppopup"]
+z_index = 1
+position = Vector2(1030.9719, 53.25)
+scale = Vector2(1.179775, 1.0955056)
+texture = ExtResource("5_5eh1f")
 
-[node name="Launch" type="Button" parent="."]
+[node name="Next" type="Button" parent="uppopup"]
+offset_left = 506.0
+offset_top = 572.0
+offset_right = 643.0
+offset_bottom = 612.0
+disabled = true
+
+[node name="Launch" type="Button" parent="uppopup"]
 visible = false
-offset_left = 1039.0
-offset_top = 592.0
-offset_right = 1145.0
-offset_bottom = 640.0
+offset_left = 507.0
+offset_top = 572.0
+offset_right = 642.0
+offset_bottom = 611.0
 disabled = true
-text = "START"
-
-[node name="DraggableObstacle1" parent="." instance=ExtResource("3_o448h")]
-position = Vector2(144, 546)
-
-[node name="DraggableObstacle2" parent="." instance=ExtResource("3_o448h")]
-position = Vector2(394, 546)
-
-[node name="DraggableObstacle3" parent="." instance=ExtResource("3_o448h")]
-position = Vector2(644, 546)
-
-[node name="DraggableObstacle4" parent="." instance=ExtResource("3_o448h")]
-position = Vector2(894, 546)
+text = "
+"
 
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="Launch" to="." method="_on_launch_pressed"]
+[connection signal="pressed" from="uppopup/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="uppopup/Launch" to="." method="_on_launch_pressed"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

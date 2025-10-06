@@ -59,6 +59,7 @@ polygon = PackedVector2Array(-35, 437, 480, 331, 480, 437)
 
 [node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D"]
 position = Vector2(0, 91.79999)
+color = Color(0.22352941, 0.3019608, 0.8039216, 1)
 polygon = PackedVector2Array(-35, 437, 480, 331, 480, 437)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Obstacles"]
@@ -69,6 +70,7 @@ polygon = PackedVector2Array(1213, 437, 698, 331, 698, 437)
 
 [node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D2"]
 position = Vector2(0, 91.79999)
+color = Color(0.22352941, 0.3019608, 0.8039216, 1)
 polygon = PackedVector2Array(1213, 437, 698, 331, 698, 437)
 
 [node name="Scrollbar" parent="Obstacles" instance=ExtResource("4_myn83")]

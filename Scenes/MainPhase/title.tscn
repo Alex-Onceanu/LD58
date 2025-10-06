@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://wl2aftxa26ee" path="res://LD58.wav" id="1_48pfh"]
 [ext_resource type="AudioStream" uid="uid://0yvowo1d86ta" path="res://Microsoft Windows 95 Startup Sound.mp3" id="1_j8h15"]
-[ext_resource type="Script" uid="uid://0x7k4jvk54k0" path="res://Scenes/MainPhase/title.gd" id="1_m6dyx"]
+[ext_resource type="Script" uid="uid://0x7k4jvk54k0" path="res://Script/MainPhase/title.gd" id="1_m6dyx"]
 [ext_resource type="PackedScene" uid="uid://dsdc0a2xxlsnk" path="res://Scenes/Menus/selection_menu.tscn" id="2_j8h15"]
 [ext_resource type="Texture2D" uid="uid://ciqin7208bjs3" path="res://Assets/title.jpg" id="5_gmryq"]
 

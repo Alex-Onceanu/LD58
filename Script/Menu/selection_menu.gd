@@ -40,7 +40,7 @@ func _on_play_pressed() -> void:
 	nw.who_plays = who_plays
 	nw.obstacles = [load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn"), load("res://Scenes/Obstacles/SingleObstacles/" + all_obstacles.pick_random() + ".tscn")]
 
-	nw.level = load(all_levels[curr_level])
+	nw.level = load(all_levels.pick_random())
 	nw.spawnPoints = [Vector2(150, 50), Vector2(433, 50), Vector2(725, 50), Vector2(1000, 50), Vector2(150, 150), Vector2(433, 150), Vector2(725, 150), Vector2(1000, 150)]
 	nw.curr_lvl = curr_level
 
@@ -103,6 +103,8 @@ func memento_mori(wp, winner, lose_per_player, remainder, curr_lvl):
 	$Play.visible = false
 	get_node("PlayerSelect" + str(who_plays[0])).can_pick = true
 
+	$local.visible = false
+
 	for k in remainder.keys():
 		for sz in remainder[k]:
 			var DRAG_MARB = load("res://Scenes/Marble/draggable_marble.tscn")
@@ -126,8 +128,8 @@ func memento_mori(wp, winner, lose_per_player, remainder, curr_lvl):
 				marb.get_node("PhysicsMarble").mass = sz
 				marb.get_node("PhysicsMarble/MarbleSprite").scale = Vector2(sz, sz)
 				marb.get_node("PhysicsMarble/CollisionShape2D").scale = Vector2(sz, sz)
-				marb.global_position = get_node("PlayerSelect" + str(k)).global_position + Vector2(randf_range(-50.0, 50.0), randf_range(-200.0, 100.0))
+				marb.global_position = get_node("PlayerSelect" + str(k)).global_position + Vector2(randf_range(-50.0, 50.0), randf_range(-150.0, 80.0))
 				create_tween().tween_property(marb, 
 					"global_position", 
 						get_node("PlayerSelect" + str(winner)).global_position
-						+ Vector2(randf_range(-50.0, 50.0), randf_range(-200.0, 100.0)), 2.0).set_trans(Tween.TRANS_SINE);
+						+ Vector2(randf_range(-50.0, 50.0), randf_range(-150.0, 80.0)), 2.0).set_trans(Tween.TRANS_SINE);

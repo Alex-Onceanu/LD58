@@ -15,7 +15,10 @@ func _physics_process(delta):
 
 func _process(delta):
 	if Input.is_action_just_pressed("mouse_click") and mouse_in:
-		get_parent()._on_obstacle_picked(self)
+		if get_parent().get_parent().has_method("_on_obstacle_picked"):
+			get_parent().get_parent()._on_obstacle_picked(self)
+		else:
+			get_parent()._on_obstacle_picked(self)
 	elif not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		held = false
 

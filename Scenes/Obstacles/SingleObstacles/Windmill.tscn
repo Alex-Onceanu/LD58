@@ -1,15 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://df2s8nqk4uixk"]
+[gd_scene load_steps=3 format=3 uid="uid://df2s8nqk4uixk"]
 
 [ext_resource type="Script" uid="uid://4ex0ne7fwu5b" path="res://Script/Obstacles/SingleObstacles/windmill.gd" id="1_e8f6p"]
+[ext_resource type="Texture2D" uid="uid://bpphx55lmm4s0" path="res://Assets/error.png" id="2_nvvyd"]
 
 [node name="Windmill" type="StaticBody2D"]
 script = ExtResource("1_e8f6p")
 fullSize = 150.0
 branchWidth = 20.0
 angular_velocity = -3.0
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-62, -11, -62, 14, -15, 14, -15, 54, 17, 54, 17, 16, 62, 15, 62, -13, 22, -13, 22, -61, -12, -61, -13, -15)
+metadata/_edit_vertical_guides_ = [-62.0, 63.0]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-62, -11, -62, 14, -15, 14, -15, 54, 17, 54, 17, 16, 62, 15, 62, -13, 22, -13, 22, -61, -12, -61, -13, -15)
+
+[node name="Error" type="Sprite2D" parent="."]
+position = Vector2(-1, 6.000001)
+rotation = 0.7853982
+scale = Vector2(0.38657093, 0.38657102)
+texture = ExtResource("2_nvvyd")

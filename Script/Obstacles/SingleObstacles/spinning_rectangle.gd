@@ -11,7 +11,7 @@ func _ready() -> void:
 		Vector2(length/2, height/2),
 		Vector2(-length/2, height/2)
 	]
-	$Polygon2D.polygon = polygon
+	#$Polygon2D.polygon = polygon
 	$CollisionPolygon2D.polygon = polygon
 
 func _process(delta: float) -> void:

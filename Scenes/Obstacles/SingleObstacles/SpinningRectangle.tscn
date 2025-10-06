@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv8mjelj1s627"]
+[gd_scene load_steps=3 format=3 uid="uid://dv8mjelj1s627"]
 
 [ext_resource type="Script" uid="uid://diprsnafmm5pl" path="res://Script/Obstacles/SingleObstacles/spinning_rectangle.gd" id="1_efn8v"]
+[ext_resource type="Texture2D" uid="uid://r3mf2jihgvk7" path="res://Assets/platform.png" id="2_w60tu"]
 
 [node name="SpinningRectangle" type="StaticBody2D"]
 script = ExtResource("1_efn8v")
@@ -8,8 +9,11 @@ length = 150.0
 height = 50.0
 angular_velocity = 3.0
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-50, -25, 50, -25, 50, 25, -50, 25)
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(4.529953e-06, 1.937151e-06)
+scale = Vector2(0.7042253, 0.56179774)
+texture = ExtResource("2_w60tu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-50, -25, 50, -25, 50, 25, -50, 25)

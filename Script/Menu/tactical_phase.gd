@@ -8,7 +8,7 @@ var spawnPoints : Array # pos
 var obstacles : Array # 4 instances d'obstacles
 var who_plays := []
 var last_spawn_selected
-var level # TODO : level.tscn ici
+var level
 var remainder
 @onready var was_held := [false, false, false, false]
 var curr_lvl
@@ -51,15 +51,15 @@ func _ready():
 
 	for i in range(1, 5):
 		var ob = obstacles[i - 1].instantiate()
-		get_node("DraggableObstacle" + str(i) + "/Body").add_child(ob)
-		get_node("DraggableObstacle" + str(i)).visible = true
+		get_node("Obspop/DraggableObstacle" + str(i) + "/Body").add_child(ob)
+		get_node("Obspop/DraggableObstacle" + str(i)).visible = true
 
-	$WhoseTurn.text = ["Blue", "Red", "Yellow", "Green"][who_plays[0] - 1] + "'s turn to play"
+	$uppopup/WhoseTurn.text = ["Blue", "Red", "Yellow", "Green"][who_plays[0] - 1] + "'s turn to play"
 
 func clicked_here(p : Vector2, whom):
-	$Next.disabled = false
+	$uppopup/Next.disabled = false
 	if whose_turn >= who_plays.size() - 1:
-		$Launch.disabled = false
+		$uppopup/Launch.disabled = false
 	for ch in get_node("Marbles/" + str(who_plays[whose_turn])).get_children():
 		ch.global_position = p + Vector2(randi_range(-10, 10), randi_range(-10, 10))
 		ch.visible = true
@@ -68,39 +68,45 @@ func clicked_here(p : Vector2, whom):
 func _on_next_pressed() -> void:
 	#last_spawn_selected.get_node("Area2D").visible = false
 	whose_turn += 1
-	$WhoseTurn.text = ["Blue", "Red", "Yellow", "Green"][who_plays[whose_turn] - 1] + "'s turn to play"
+	$uppopup/WhoseTurn.text = ["Blue", "Red", "Yellow", "Green"][who_plays[whose_turn] - 1] + "'s turn to play"
 	if held_obstacle:
 		held_obstacle.get_node("Area2D").visible = false
 		was_held[int(held_obstacle.name.substr(held_obstacle.name.length() - 1, 1)) -1] = true
 	held_obstacle = null
-	$Next.disabled = true
+	$uppopup/Next.disabled = true
 	if whose_turn >= who_plays.size() - 1:
-		$Next.visible = false
-		$Launch.visible = true
+		$uppopup/Next.visible = false
+		$uppopup/Launch.visible = true
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if held_obstacle and !event.pressed:
 			held_obstacle.held = false
+			create_tween().tween_property($Obspop, "position", Vector2($Obspop.position.x, 525.75), 0.8).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
 func _on_obstacle_picked(who):
 	if held_obstacle and held_obstacle != who:
+		held_obstacle.reparent($Obspop)
 		held_obstacle.position = held_obstacle.reset_position
 	held_obstacle = who
+	create_tween().tween_property($Obspop, "position", Vector2($Obspop.position.x, 850.0), 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	who.reparent(self)
 	who.pickup()
 
 func _on_launch_pressed() -> void:
+	create_tween().tween_property($Obspop, "position", Vector2($Obspop.position.x, 850.0), 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	if held_obstacle:
 		was_held[int(held_obstacle.name.substr(held_obstacle.name.length() - 1, 1)) -1] = true
 	for i in range(1, 5):
-		get_node("DraggableObstacle" + str(i) + "/ColorRect").visible = false
 		if not was_held[i - 1]:
-			get_node("DraggableObstacle" + str(i)).free.call_deferred()
+			get_node("Obspop/DraggableObstacle" + str(i)).free.call_deferred()
+		else:
+			get_node("DraggableObstacle" + str(i) + "/ColorRect").visible = false
 		for ch in get_node("Marbles/" + str(i)).get_children():
 			ch.freeze = false
-	$Next.visible = false
-	$WhoseTurn.visible = false
-	$Launch.visible = false
+	$uppopup/Next.visible = false
+	$uppopup.visible = false
+	$uppopup/Launch.visible = false
 
 func _process(delta: float):
 	var all_stables := true
@@ -110,7 +116,8 @@ func _process(delta: float):
 				all_stables = false
 	if all_stables:
 		_on_end_timer_timeout()
-		
+	if Input.is_action_just_pressed("enter"):
+		_on_end_timer_timeout()
 
 
 func _on_end_timer_timeout() -> void:

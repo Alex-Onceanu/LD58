@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhrcpimvnmjt3"]
+[gd_scene load_steps=6 format=3 uid="uid://dhrcpimvnmjt3"]
 
 [ext_resource type="Script" uid="uid://dxue1pwl0dwbm" path="res://Script/Obstacles/SingleObstacles/teleporter.gd" id="1_7b4f5"]
+[ext_resource type="Texture2D" uid="uid://btvtq1xrdq7kf" path="res://Assets/portal1.png" id="2_y3yen"]
+[ext_resource type="Texture2D" uid="uid://dkff6f6bxlq05" path="res://Assets/portal2.png" id="3_iqvo5"]
+[ext_resource type="Texture2D" uid="uid://53qlhywthxnh" path="res://Assets/portal3.png" id="4_ub1vo"]
+[ext_resource type="Texture2D" uid="uid://3q7avol5o5ws" path="res://Assets/portal4.png" id="5_ajnc6"]
 
 [node name="Teleporter" type="Node2D"]
 script = ExtResource("1_7b4f5")
@@ -11,19 +15,39 @@ spacingY = -100.0
 
 [node name="Entry" type="Node2D" parent="."]
 
-[node name="Polygon2D" type="Polygon2D" parent="Entry"]
-color = Color(0.8637213, 0.95751184, 0.6547268, 1)
-polygon = PackedVector2Array(-50, -10, -50, 10, 50, 10, 50, -10)
-
 [node name="Area2D" type="Area2D" parent="Entry"]
+
+[node name="Polygon2D" type="Node2D" parent="Entry/Area2D"]
+
+[node name="Portal3" type="Sprite2D" parent="Entry/Area2D/Polygon2D"]
+position = Vector2(0.044994414, -4.0750012)
+rotation = 1.5707964
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("4_ub1vo")
+
+[node name="Portal4" type="Sprite2D" parent="Entry/Area2D/Polygon2D"]
+z_index = 2
+position = Vector2(-1.0949976, 10.825005)
+rotation = 1.5707964
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("5_ajnc6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Entry/Area2D"]
 polygon = PackedVector2Array(-50, -10, -50, 10, 50, 10, 50, -10)
 
-[node name="Exit" type="Polygon2D" parent="."]
-position = Vector2(0, -37)
-color = Color(0.48052526, 0.8925528, 0.89522547, 1)
-polygon = PackedVector2Array(-50, -10, -50, 10, 50, 10, 50, -10)
-uv = PackedVector2Array(-50, -10, -50, 10, 50, 10, 50, -10)
+[node name="Exit" type="Node2D" parent="."]
+
+[node name="Portal5" type="Sprite2D" parent="Exit"]
+position = Vector2(-1.4649973, -42.079998)
+rotation = -1.5707964
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("3_iqvo5")
+
+[node name="Portal6" type="Sprite2D" parent="Exit"]
+z_index = 2
+position = Vector2(-2, -52)
+rotation = -1.5707964
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("2_y3yen")
 
 [connection signal="body_entered" from="Entry/Area2D" to="." method="_on_area_2d_body_entered"]

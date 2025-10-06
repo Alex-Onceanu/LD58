@@ -43,6 +43,7 @@ position = Vector2(83, 452)
 [node name="StaticBody2D3" type="StaticBody2D" parent="Obstacles"]
 
 [node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D3"]
+color = Color(0.22352941, 0.3019608, 0.8039216, 1)
 polygon = PackedVector2Array(-13, 508, 1210, 589, 1210, 660, -18, 671)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/StaticBody2D3"]
@@ -52,6 +53,7 @@ polygon = PackedVector2Array(-13, 508, 1210, 589, 1210, 660, -18, 671)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Obstacles/StaticBody2D2"]
 position = Vector2(-2, 35)
+color = Color(0.22352941, 0.3019608, 0.8039216, 1)
 polygon = PackedVector2Array(-15, 354, 1174, 469, 1174, 389, -15, 276)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/StaticBody2D2"]
@@ -62,6 +64,7 @@ polygon = PackedVector2Array(-16, 383, 1173, 498, 1173, 418, -16, 305)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Obstacles/StaticBody2D"]
 position = Vector2(-2, -154)
+color = Color(0.22352941, 0.3019608, 0.8039216, 1)
 polygon = PackedVector2Array(-15, 354, 1174, 469, 1174, 389, -15, 276)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Obstacles/StaticBody2D"]

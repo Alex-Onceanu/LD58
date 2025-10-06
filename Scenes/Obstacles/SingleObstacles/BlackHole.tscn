@@ -12,8 +12,9 @@ shader_parameter/black_radius = 0.65
 radius = 143.42245
 
 [node name="BlackHole" type="Node2D"]
+z_index = 2
 script = ExtResource("1_ppcha")
-forceFactor = 1.0
+forceFactor = 0.7
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_by5i0")

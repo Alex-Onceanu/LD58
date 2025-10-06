@@ -1,10 +1,26 @@
-[gd_scene format=3 uid="uid://ddp5dsv87ka5u"]
+[gd_scene load_steps=3 format=3 uid="uid://ddp5dsv87ka5u"]
+
+[ext_resource type="Texture2D" uid="uid://oofde8sbd5o1" path="res://Assets/start_button_background.png" id="1_a872k"]
+[ext_resource type="Texture2D" uid="uid://ccmb2h8xk16lc" path="res://Assets/start_button_text.png" id="2_a3aho"]
 
 [node name="TriangleSplit" type="StaticBody2D"]
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-95, -7, 0, -14, 95, -7, 95, 11, -95, 11)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-11, -23)
 polygon = PackedVector2Array(106, 16, 10.874641, 9, -84, 16, -84, 34, 106, 34)
+
+[node name="StartButtonBackground" type="Sprite2D" parent="."]
+position = Vector2(3.0000005, 4)
+scale = Vector2(0.25254995, 0.28654972)
+texture = ExtResource("1_a872k")
+
+[node name="StartButtonText" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, 1)
+scale = Vector2(0.39240634, 0.25862068)
+texture = ExtResource("2_a3aho")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-1.5258789e-05, 1.1666698)
+scale = Vector2(1, 1.1666669)
+color = Color(0.5372549, 0.8235294, 0.53333336, 1)
+polygon = PackedVector2Array(0, -13, 95, -7, -96, -7)

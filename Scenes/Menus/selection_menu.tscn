@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsdc0a2xxlsnk"]
+[gd_scene load_steps=5 format=3 uid="uid://dsdc0a2xxlsnk"]
 
 [ext_resource type="Script" uid="uid://ufjgiyfp0op6" path="res://Script/Menu/selection_menu.gd" id="1_bbd4k"]
 [ext_resource type="Texture2D" uid="uid://bfsa2yubkgaly" path="res://Assets/windows_xp_background.jpg" id="2_bbd4k"]
 [ext_resource type="PackedScene" uid="uid://blqp7vyvbe5mq" path="res://Scenes/Menus/player_select.tscn" id="3_dj8c6"]
+[ext_resource type="Texture2D" uid="uid://dvglsegh7oy0l" path="res://Assets/vide.png" id="4_3uq8l"]
 
 [node name="SelectionMenu" type="Control"]
 layout_mode = 3
@@ -57,14 +58,32 @@ mouse_filter = 1
 disabled = true
 text = "PLAY"
 
+[node name="Vide" type="Sprite2D" parent="."]
+position = Vector2(156.61447, 571.9375)
+scale = Vector2(1.4480338, 1.3019658)
+texture = ExtResource("4_3uq8l")
+
 [node name="WhoseTurn" type="Label" parent="."]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 555.0
-offset_right = 299.0
-offset_bottom = 606.0
+offset_left = 86.0
+offset_top = 553.0
+offset_right = 284.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="local" type="Label" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 558.0
+offset_right = 283.0
+offset_bottom = 618.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "This is a local multiplayer game"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
 visible = false

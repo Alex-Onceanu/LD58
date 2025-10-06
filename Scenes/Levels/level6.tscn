@@ -39,6 +39,7 @@ position = Vector2(100, 100)
 [node name="StaticBody2D" type="StaticBody2D" parent="Obstacles"]
 
 [node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D"]
+color = Color(0.22352941, 0.3019608, 0.8039216, 1)
 polygon = PackedVector2Array(9, 190, 401.82126, 222.48581, 527.11694, 232.8476, 928, 266, 525.0797, 319.24, 401.52518, 335.56592, -18, 391, -14, 663, 12, 684, 380.34628, 588.4688, 583.0615, 535.8943, 1215, 372, 1217, 694, 588.67285, 694, 384.13803, 694, -59, 694, -51, 183)
 polygons = [PackedInt32Array(16, 1, 5, 6), PackedInt32Array(2, 3, 4), PackedInt32Array(8, 9, 14, 15), PackedInt32Array(10, 11, 12, 13)]
 
