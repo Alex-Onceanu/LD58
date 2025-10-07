@@ -1,4 +1,8 @@
-# Collector
+# Frutiger Pachinko
+
+https://ldjam.com/events/ludum-dare/58/frutiger-pachinko
+
+Ludum dare 58 : "Collector"
 
 ## Identité
 Course de billes comme dans la cour de récré à 4 joueurs au tour par tour : placez des obstacles pour arriver avant les autres et voler une partie de leur collection.
