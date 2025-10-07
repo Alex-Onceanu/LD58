@@ -5,8 +5,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_by5i0"]
 shader = ExtResource("2_rrabh")
-shader_parameter/strength = 0.04
-shader_parameter/black_radius = 0.65
+shader_parameter/strength = 0.015
+shader_parameter/black_radius = 0.75
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xtgb"]
 radius = 143.42245
@@ -17,11 +17,12 @@ script = ExtResource("1_ppcha")
 forceFactor = 0.7
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
 material = SubResource("ShaderMaterial_by5i0")
 offset_left = -140.0
-offset_top = -144.0
+offset_top = -143.0
 offset_right = 139.0
-offset_bottom = 142.99219
+offset_bottom = 143.99219
 mouse_filter = 2
 
 [node name="Attracteur" type="Area2D" parent="."]

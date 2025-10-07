@@ -1,45 +1,100 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd61svtnmitp1"]
+[gd_scene load_steps=12 format=3 uid="uid://dd61svtnmitp1"]
 
-[ext_resource type="AudioStream" uid="uid://wl2aftxa26ee" path="res://LD58.wav" id="1_48pfh"]
-[ext_resource type="AudioStream" uid="uid://0yvowo1d86ta" path="res://Microsoft Windows 95 Startup Sound.mp3" id="1_j8h15"]
+[ext_resource type="AudioStream" uid="uid://wl2aftxa26ee" path="res://Assets/LD58.wav" id="1_48pfh"]
+[ext_resource type="AudioStream" uid="uid://0yvowo1d86ta" path="res://Assets/Microsoft Windows 95 Startup Sound.mp3" id="1_j8h15"]
 [ext_resource type="Script" uid="uid://0x7k4jvk54k0" path="res://Script/MainPhase/title.gd" id="1_m6dyx"]
 [ext_resource type="PackedScene" uid="uid://dsdc0a2xxlsnk" path="res://Scenes/Menus/selection_menu.tscn" id="2_j8h15"]
-[ext_resource type="Texture2D" uid="uid://ciqin7208bjs3" path="res://Assets/title.jpg" id="5_gmryq"]
+[ext_resource type="AudioStream" uid="uid://bcrm875sgovy" path="res://Assets/LD58_vibe_only.wav" id="2_mw6ic"]
+[ext_resource type="Texture2D" uid="uid://n4seu174jgvq" path="res://Assets/titlescreen.png" id="5_gmryq"]
+[ext_resource type="Texture2D" uid="uid://cqtjsyuegbi07" path="res://Assets/compiouter3.png" id="6_5lr4s"]
+[ext_resource type="Theme" uid="uid://bi54ign8ggomc" path="res://Assets/Classic95/Classic95.tres" id="6_qxsw2"]
+[ext_resource type="Shader" uid="uid://cytki4abdxsen" path="res://Shaders/crt.gdshader" id="8_mw6ic"]
+[ext_resource type="AudioStream" uid="uid://b4oxy85rxl6l7" path="res://Assets/clic.wav" id="10_mibly"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dd60"]
+shader = ExtResource("8_mw6ic")
+shader_parameter/scanline_color = Color(0, 0, 0, 1)
+shader_parameter/flicker_color = Color(0, 0, 0, 1)
+shader_parameter/scanlines_count = 10.0
+shader_parameter/scanlines_intensity = 0.05
+shader_parameter/flicker_speed = 30.0
+shader_parameter/flicker_intensity = 0.025
+shader_parameter/color_offset = 1.5
+shader_parameter/blur = 0.15
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_m6dyx")
+metadata/_edit_vertical_guides_ = [-136.0, 1281.0]
 
-[node name="StartupSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-341, 1242)
-stream = ExtResource("1_j8h15")
+[node name="clic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mibly")
 
-[node name="Ld58" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(344, 1773)
+[node name="OST" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mw6ic")
+
+[node name="OSTBeats" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_48pfh")
+
+[node name="StartupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_j8h15")
 
 [node name="SelectionMenu" parent="." instance=ExtResource("2_j8h15")]
 
 [node name="TitleLayer" type="Node2D" parent="."]
 
-[node name="Title" type="Sprite2D" parent="TitleLayer"]
-position = Vector2(538, 320)
-scale = Vector2(2.9349775, 2.9349775)
+[node name="Titlescreen" type="Sprite2D" parent="TitleLayer"]
+position = Vector2(567, 350)
+scale = Vector2(1.8307294, 1.830729)
 texture = ExtResource("5_gmryq")
 
 [node name="Button" type="Button" parent="TitleLayer"]
-offset_left = 347.0
-offset_top = 430.0
-offset_right = 794.0
-offset_bottom = 537.0
+offset_left = 456.07318
+offset_top = 475.0
+offset_right = 670.0244
+offset_bottom = 543.0
+theme = ExtResource("6_qxsw2")
+theme_override_font_sizes/font_size = 28
 text = "Start Game"
 
-[node name="Label" type="Label" parent="TitleLayer"]
-offset_left = 243.0
-offset_top = 128.0
-offset_right = 914.0
-offset_bottom = 308.0
-text = "Marble XP"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Label" type="RichTextLabel" parent="TitleLayer"]
+offset_left = 322.0
+offset_top = 334.0
+offset_right = 734.0
+offset_bottom = 472.0
+theme = ExtResource("6_qxsw2")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "Frutiger Pachinko"
 
+[node name="Label2" type="Label" parent="TitleLayer"]
+offset_left = 324.0
+offset_top = 310.0
+offset_right = 470.0
+offset_bottom = 351.0
+theme = ExtResource("6_qxsw2")
+theme_override_colors/font_color = Color(0.7372549, 0.74509805, 0.75686276, 1)
+theme_override_font_sizes/font_size = 24
+text = "Golems inc.™"
+
+[node name="crt" type="ColorRect" parent="."]
+z_index = 4
+material = SubResource("ShaderMaterial_4dd60")
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 1171.0
+offset_bottom = 661.0
+mouse_filter = 2
+
+[node name="Compiouter3" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(935.00006, 570.375)
+scale = Vector2(3.6653895, 2.5806036)
+texture = ExtResource("6_5lr4s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(588, 323)
+zoom = Vector2(0.7, 0.7)
+
+[connection signal="finished" from="OST" to="." method="_on_ost_finished"]
 [connection signal="pressed" from="TitleLayer/Button" to="." method="_on_button_pressed"]

@@ -13,9 +13,9 @@ void fragment() {
 	
 	// This is a 0..1 value that will nullify the effect around the bounds of the effect,
 	// for a seamless transition between the effect's area and the unaffected world pixels.
-	float shelf = smoothstep(0, 1, f);
+	float shelf = smoothstep(0, 1.0, f);
 	// Calculate displacement amount
-	float displacement = strength / (d*d + 0.01);
+	float displacement = strength / (d*d + 0.1);
 	
 	// Calculate distorted screen-space texture coordinates
 	vec2 uv = SCREEN_UV + dir * (displacement * shelf);

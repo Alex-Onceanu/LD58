@@ -13,10 +13,11 @@ config_version=5
 config/name="LD58"
 run/main_scene="uid://dd61svtnmitp1"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=948
+window/size/viewport_height=533
 window/stretch/mode="viewport"
 
 [input]
@@ -45,3 +46,4 @@ enter={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

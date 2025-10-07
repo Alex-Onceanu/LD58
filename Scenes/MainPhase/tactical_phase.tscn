@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3uirosy8e4i1"]
+[gd_scene load_steps=7 format=3 uid="uid://b3uirosy8e4i1"]
 
 [ext_resource type="Script" uid="uid://d3lhck1slhebb" path="res://Script/Menu/tactical_phase.gd" id="1_qelru"]
 [ext_resource type="Texture2D" uid="uid://bfsa2yubkgaly" path="res://Assets/windows_xp_background.jpg" id="2_1cadd"]
 [ext_resource type="Texture2D" uid="uid://c480cg3alk2av" path="res://Assets/obspop.png" id="3_1cadd"]
 [ext_resource type="PackedScene" uid="uid://cjs1xkph7r2p" path="res://Scenes/Obstacles/draggable_obstacle.tscn" id="3_o448h"]
-[ext_resource type="Texture2D" uid="uid://dvglsegh7oy0l" path="res://Assets/vide.png" id="5_5eh1f"]
+[ext_resource type="Texture2D" uid="uid://t2jflurhm2qf" path="res://Assets/strt.png" id="5_5eh1f"]
+[ext_resource type="Theme" uid="uid://bi54ign8ggomc" path="res://Assets/Classic95/Classic95.tres" id="5_u4661"]
 
 [node name="TacticalPhase" type="Node2D"]
 script = ExtResource("1_qelru")
@@ -53,46 +54,48 @@ scale = Vector2(0.55835336, 0.56124705)
 position = Vector2(246.23386, 13.61026)
 scale = Vector2(0.55835336, 0.56124705)
 
+[node name="Next" type="Button" parent="Obspop"]
+offset_left = -39.084747
+offset_top = 25.957733
+offset_right = 37.409668
+offset_bottom = 48.407562
+disabled = true
+flat = true
+
+[node name="Launch" type="Button" parent="Obspop"]
+visible = false
+offset_left = -39.643097
+offset_top = 18.661457
+offset_right = 40.759796
+offset_bottom = 49.661457
+disabled = true
+text = "
+"
+flat = true
+
 [node name="uppopup" type="Node2D" parent="."]
 
 [node name="WhoseTurn" type="Label" parent="uppopup"]
 z_index = 2
-offset_left = 980.2
-offset_top = 37.22
-offset_right = 1136.2
-offset_bottom = 91.87
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
+offset_left = 806.78
+offset_top = 10.1
+offset_right = 1095.516
+offset_bottom = 38.59
+theme = ExtResource("5_u4661")
+theme_override_colors/font_color = Color(0.92156863, 0.9137255, 0.84705883, 1)
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Vide" type="Sprite2D" parent="uppopup"]
 z_index = 1
-position = Vector2(1030.9719, 53.25)
+position = Vector2(967, 57)
 scale = Vector2(1.179775, 1.0955056)
 texture = ExtResource("5_5eh1f")
 
-[node name="Next" type="Button" parent="uppopup"]
-offset_left = 506.0
-offset_top = 572.0
-offset_right = 643.0
-offset_bottom = 612.0
-disabled = true
-
-[node name="Launch" type="Button" parent="uppopup"]
-visible = false
-offset_left = 507.0
-offset_top = 572.0
-offset_right = 642.0
-offset_bottom = 611.0
-disabled = true
-text = "
-"
-
 [node name="EndTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
-[connection signal="pressed" from="uppopup/Next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="uppopup/Launch" to="." method="_on_launch_pressed"]
+[connection signal="pressed" from="Obspop/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Obspop/Launch" to="." method="_on_launch_pressed"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

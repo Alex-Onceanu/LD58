@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://blqp7vyvbe5mq"]
+[gd_scene load_steps=5 format=3 uid="uid://blqp7vyvbe5mq"]
 
 [ext_resource type="Script" uid="uid://etobnmtajeqt" path="res://Script/Menu/player_select.gd" id="1_yh01e"]
+[ext_resource type="Theme" uid="uid://bi54ign8ggomc" path="res://Assets/Classic95/Classic95.tres" id="2_aii6g"]
 [ext_resource type="PackedScene" uid="uid://c78tlamhdk2i5" path="res://Scenes/Marble/draggable_marble.tscn" id="2_c3nyd"]
 [ext_resource type="Texture2D" uid="uid://dqrsxtgfa0ky1" path="res://Assets/popup.png" id="2_nwvtu"]
 
@@ -19,6 +20,7 @@ offset_right = 34.0
 offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_aii6g")
 text = "Add Player"
 
 [node name="Background" type="Node2D" parent="."]
@@ -34,6 +36,8 @@ offset_left = 512.0
 offset_top = 375.0
 offset_right = 687.0
 offset_bottom = 429.0
+theme = ExtResource("2_aii6g")
+theme_override_colors/font_color = Color(0.92156863, 0.9137255, 0.84705883, 1)
 text = "name"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -43,6 +47,7 @@ offset_left = 526.0
 offset_top = 669.0
 offset_right = 679.0
 offset_bottom = 707.0
+theme = ExtResource("2_aii6g")
 text = "Remove Player"
 
 [node name="Marbles" type="Node2D" parent="."]

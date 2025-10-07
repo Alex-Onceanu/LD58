@@ -5,10 +5,10 @@
 [node name="Funnel" type="Node2D"]
 
 [node name="LeftRamp" parent="." instance=ExtResource("1_e2whh")]
-position = Vector2(-62, 0)
+position = Vector2(-73, 0)
 rotation = 0.0
 scale = Vector2(0.6, 0.6)
 
 [node name="RightRamp" parent="." instance=ExtResource("1_e2whh")]
-position = Vector2(62, 0)
+position = Vector2(71, 3.907985e-14)
 scale = Vector2(0.6, 0.6)

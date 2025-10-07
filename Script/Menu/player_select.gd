@@ -43,6 +43,7 @@ func _unhandled_input(event):
 			held_object = null
 
 func _on_add_player_pressed() -> void:
+	get_tree().root.get_node("Title/clic").play()
 	$AddPlayer.visible = false
 	$Background/RemovePlayer.visible = true
 	$Marbles.visible = true
@@ -53,6 +54,7 @@ func _on_add_player_pressed() -> void:
 		get_node("../Play").disabled = false
 
 func _on_remove_player_pressed() -> void:
+	get_tree().root.get_node("Title/clic").play()
 	$Background/RemovePlayer.visible = false
 	$AddPlayer.visible = true
 	create_tween().tween_property($Background, "position", Vector2($Background.position.x, $Background.position.y+730), 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
